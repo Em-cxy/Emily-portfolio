@@ -79,14 +79,21 @@ const slugs = [
 export default function Home() {
   const { scrollYProgress } = useScroll(); // Get scroll progress
 
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const handleImageClick = (id: string) => {
-    setSelectedId(id);
+  const [selectedImage, setSelectedImage] = useState<{
+    id: string;
+    src: string;
+    alt: string;
+  } | null>(null);
+
+  // Handle image click, pass the id, src, and alt of the image
+  const handleImageClick = (id: string, src: string, alt: string) => {
+    setSelectedImage({ id, src, alt });
   };
 
+  // Close modal when clicking outside the image or on the close button
   const handleCloseClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setSelectedId(null);
+    setSelectedImage(null);
   };
 
   return (
@@ -308,7 +315,13 @@ export default function Home() {
           >
             <motion.div
               className="w-full h-full flex items-center justify-center bg-transparent border-0 cursor-pointer"
-              onClick={() => handleImageClick("image1")}
+              onClick={() =>
+                handleImageClick(
+                  "image1",
+                  "/Weather-Dashboard.png",
+                  "Weather Dashboard"
+                )
+              }
               layoutId="image1"
             >
               <Image
@@ -332,17 +345,29 @@ export default function Home() {
             <div className="text-lg font-semibold text-tertiary">
               Featured project 2
             </div>
-            <div className="text-2xl font-bold">Another Project</div>
+            <div className="text-2xl font-bold">
+              Music Application with Spotify
+            </div>
             <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
-              Description of another project with its features and highlights.
+              SpotWave allow you to search for and listen to Spotify songs with
+              a preview and lyrics. You can also view the top tracks and artists
+              in global rank and come with their all details such as bio, images
+              and albums and tracks.
               <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                 <div className="cursor-pointer space-x-5">
                   <ConfettiButton className="underline">
-                    Live Preview
+                    <a
+                      href="https://spot-wave.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline cursor-pointer"
+                    >
+                      Live Preview
+                    </a>
                   </ConfettiButton>
                   <ConfettiButton>
                     <a
-                      href="https://github.com/Aiyern30/Weather-Forecast"
+                      href="https://github.com/Aiyern30/SpotWave"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="underline cursor-pointer"
@@ -362,12 +387,18 @@ export default function Home() {
           >
             <motion.div
               className="w-full h-full flex items-center justify-center bg-transparent border-0 cursor-pointer"
-              onClick={() => handleImageClick("image2")}
+              onClick={() =>
+                handleImageClick(
+                  "image2",
+                  "/SpotWave.png",
+                  "SpotWave Dashboard"
+                )
+              }
               layoutId="image2"
             >
               <Image
-                src="/Weather-Dashboard.png"
-                alt="Weather Dashboard"
+                src="/SpotWave.png"
+                alt="SpotWave Dashboard"
                 width={400}
                 height={300}
               />
@@ -397,7 +428,7 @@ export default function Home() {
                   </ConfettiButton>
                   <ConfettiButton>
                     <a
-                      href="https://github.com/Aiyern30/Weather-Forecast"
+                      href="https://github.com/Aiyern30/Weather-Statistics"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="underline cursor-pointer"
@@ -417,47 +448,55 @@ export default function Home() {
           >
             <motion.div
               className="w-full h-full flex items-center justify-center bg-transparent border-0 cursor-pointer"
-              onClick={() => handleImageClick("image3")}
+              onClick={() =>
+                handleImageClick(
+                  "image3",
+                  "/Weather-Statistics.png",
+                  "Yet Another Project Dashboard"
+                )
+              }
               layoutId="image3"
             >
               <Image
-                src="/Weather-Dashboard.png"
-                alt="Weather Dashboard"
+                src="/Weather-Statistics.png"
+                alt="Yet Another Project Dashboard"
                 width={400}
                 height={300}
               />
             </motion.div>
           </motion.div>
         </div>
-
-        <AnimatePresence>
-          {selectedId && (
-            <motion.div
-              className="fixed inset-0 flex items-center justify-center bg-black/70"
-              onClick={() => setSelectedId(null)}
-              layoutId={selectedId}
-            >
-              <motion.div
-                className="relative"
-                onClick={handleCloseClick} // Use the defined function
-              >
-                <Image
-                  src={`/Weather-Dashboard.png`} // Adjust based on the selected image
-                  alt="Selected Project"
-                  width={800} // Larger size for display
-                  height={600}
-                />
-                <motion.button
-                  className="absolute top-4 right-4 text-black "
-                  onClick={handleCloseClick} // Use the defined function
-                >
-                  X
-                </motion.button>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </section>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white rounded-lg p-4 shadow-lg relative"
+              layoutId={selectedImage.id}
+            >
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                width={800}
+                height={600}
+              />
+              <button
+                className="px-3 py-1  rounded-full bg-primary text-white absolute top-0 right-0"
+                onClick={handleCloseClick}
+              >
+                X
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
