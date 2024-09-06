@@ -290,19 +290,26 @@ export default function Home() {
               forecasts extending up to 3 days.
               <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                 <div className="cursor-pointer space-x-5">
-                  <ConfettiButton className="underline">
-                    Live Preview
-                  </ConfettiButton>
-                  <ConfettiButton>
-                    <a
-                      href="https://github.com/Aiyern30/Weather-Forecast"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline cursor-pointer"
-                    >
+                  <a
+                    href="https://ian-weather-application.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
+                      Live Preview
+                    </ConfettiButton>
+                  </a>
+                  <a
+                    href="https://github.com/Aiyern30/Weather-Application"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
                       View Code
-                    </a>
-                  </ConfettiButton>
+                    </ConfettiButton>
+                  </a>
                 </div>
               </div>
             </div>
@@ -355,26 +362,26 @@ export default function Home() {
               and albums and tracks.
               <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                 <div className="cursor-pointer space-x-5">
-                  <ConfettiButton className="underline">
-                    <a
-                      href="https://spot-wave.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline cursor-pointer"
-                    >
+                  <a
+                    href="https://spot-wave.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className=" cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
                       Live Preview
-                    </a>
-                  </ConfettiButton>
-                  <ConfettiButton>
-                    <a
-                      href="https://github.com/Aiyern30/SpotWave"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline cursor-pointer"
-                    >
+                    </ConfettiButton>{" "}
+                  </a>
+                  <a
+                    href="https://github.com/Aiyern30/SpotWave"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
                       View Code
-                    </a>
-                  </ConfettiButton>
+                    </ConfettiButton>
+                  </a>
                 </div>
               </div>
             </div>
@@ -423,19 +430,19 @@ export default function Home() {
               highlights.
               <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                 <div className="cursor-pointer space-x-5">
-                  <ConfettiButton className="underline">
+                  <ConfettiButton className="hover:underline">
                     Live Preview
                   </ConfettiButton>
-                  <ConfettiButton>
-                    <a
-                      href="https://github.com/Aiyern30/Weather-Statistics"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline cursor-pointer"
-                    >
+                  <a
+                    href="https://github.com/Aiyern30/Weather-Statistics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
                       View Code
-                    </a>
-                  </ConfettiButton>
+                    </ConfettiButton>
+                  </a>
                 </div>
               </div>
             </div>
