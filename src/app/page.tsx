@@ -246,7 +246,7 @@ export default function Home() {
             <div className="text-lg font-semibold text-tertiary">
               Featured project 3
             </div>
-            <div className="text-2xl font-bold">Yet Another Project</div>
+            <div className="text-2xl font-bold">Expenses Tracker</div>
             <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
               Description of yet another project with its features and
               highlights.
@@ -280,6 +280,130 @@ export default function Home() {
               onClick={() =>
                 handleImageClick(
                   "image3",
+                  "/Weather-Statistics.png",
+                  "Yet Another Project Dashboard"
+                )
+              }
+              layoutId="image3"
+            >
+              <Image
+                src="/Weather-Statistics.png"
+                alt="Yet Another Project Dashboard"
+                width={400}
+                height={300}
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+        {/* Row 4 */}
+        <div className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0">
+          <motion.div
+            className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <div className="text-lg font-semibold text-tertiary">
+              Featured project 4
+            </div>
+            <div className="text-2xl font-bold">
+              Reka Konsult Company Profile
+            </div>
+            <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
+              Description of yet another project with its features and
+              highlights.
+              <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
+                <div className="cursor-pointer space-x-5">
+                  <ConfettiButton className="hover:underline">
+                    Live Preview
+                  </ConfettiButton>
+                  <a
+                    href="https://github.com/Aiyern30/Weather-Statistics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
+                      View Code
+                    </ConfettiButton>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            className="w-full md:w-1/2 flex items-center justify-center flex-1"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <motion.div
+              className="w-full h-full flex items-center justify-center bg-transparent border-0 cursor-pointer"
+              onClick={() =>
+                handleImageClick(
+                  "image4",
+                  "/Weather-Statistics.png",
+                  "Yet Another Project Dashboard"
+                )
+              }
+              layoutId="image3"
+            >
+              <Image
+                src="/Weather-Statistics.png"
+                alt="Yet Another Project Dashboard"
+                width={400}
+                height={300}
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+        {/* Row 3 */}
+        <div className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0">
+          <motion.div
+            className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <div className="text-lg font-semibold text-tertiary">
+              Featured project 5
+            </div>
+            <div className="text-2xl font-bold">
+              Etherium KL hackathon projects
+            </div>
+            <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
+              Description of yet another project with its features and
+              highlights.
+              <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
+                <div className="cursor-pointer space-x-5">
+                  <ConfettiButton className="hover:underline">
+                    Live Preview
+                  </ConfettiButton>
+                  <a
+                    href="https://github.com/Aiyern30/Weather-Statistics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
+                      View Code
+                    </ConfettiButton>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            className="w-full md:w-1/2 flex items-center justify-center flex-1"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <motion.div
+              className="w-full h-full flex items-center justify-center bg-transparent border-0 cursor-pointer"
+              onClick={() =>
+                handleImageClick(
+                  "image5",
                   "/Weather-Statistics.png",
                   "Yet Another Project Dashboard"
                 )
