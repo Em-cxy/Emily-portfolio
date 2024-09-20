@@ -1,30 +1,16 @@
 "use client";
-import Header from "@/components/Header";
-import ShimmerButton from "@/components/magicui/Shimmer-button";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { useState } from "react";
 
 import Image from "next/image";
-import {
-  BoxReveal,
-  IconCloud,
-  MagicCard,
-  Meteors,
-} from "@/components/magicui/index";
-import OrbitingCircles from "@/components/magicui/Orbiting-circles";
-import {
-  UserOutlined,
-  LinkedinOutlined,
-  GithubOutlined,
-} from "@ant-design/icons";
-import { Avatar, Space } from "antd";
-import { SocialIcon } from "react-social-icons";
+import { Meteors } from "@/components/magicui/index";
+
 import { ConfettiButton } from "@/components/magicui/Confetti";
 import HeroSection from "@/components/pages/HeroSection";
 import GlobalSection from "@/components/pages/GlobalSection";
 
 export default function Home() {
-  const { scrollYProgress } = useScroll(); // Get scroll progress
+  const { scrollYProgress } = useScroll();
 
   const [selectedImage, setSelectedImage] = useState<{
     id: string;
@@ -32,12 +18,10 @@ export default function Home() {
     alt: string;
   } | null>(null);
 
-  // Handle image click, pass the id, src, and alt of the image
   const handleImageClick = (id: string, src: string, alt: string) => {
     setSelectedImage({ id, src, alt });
   };
 
-  // Close modal when clicking outside the image or on the close button
   const handleCloseClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setSelectedImage(null);
@@ -91,7 +75,7 @@ export default function Home() {
           />
         </div>
       </section> */}
-      <section className="min-h-screen flex flex-col items-center justify-center text-white container mx-auto space-y-8 select-none">
+      <section className="min-h-screen flex flex-col items-center justify-center text-white container mx-auto space-y-8 select-none mb-20">
         {/* Row 1 */}
         <div className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 ">
           <motion.div
@@ -252,11 +236,18 @@ export default function Home() {
               highlights.
               <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                 <div className="cursor-pointer space-x-5">
-                  <ConfettiButton className="hover:underline">
-                    Live Preview
-                  </ConfettiButton>
                   <a
-                    href="https://github.com/Aiyern30/Weather-Statistics"
+                    href="https://split-track.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className=" cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
+                      Live Preview
+                    </ConfettiButton>
+                  </a>
+                  <a
+                    href="https://github.com/Aiyern30/SplitTrack"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline cursor-pointer"
@@ -280,14 +271,14 @@ export default function Home() {
               onClick={() =>
                 handleImageClick(
                   "image3",
-                  "/Weather-Statistics.png",
+                  "/Split-Track.png",
                   "Yet Another Project Dashboard"
                 )
               }
               layoutId="image3"
             >
               <Image
-                src="/Weather-Statistics.png"
+                src="/Split-Track.png"
                 alt="Yet Another Project Dashboard"
                 width={400}
                 height={300}
@@ -314,11 +305,18 @@ export default function Home() {
               highlights.
               <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                 <div className="cursor-pointer space-x-5">
-                  <ConfettiButton className="hover:underline">
-                    Live Preview
-                  </ConfettiButton>
                   <a
-                    href="https://github.com/Aiyern30/Weather-Statistics"
+                    href="https://reka-konsult.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
+                      Live Preview
+                    </ConfettiButton>
+                  </a>
+                  <a
+                    href="https://github.com/Aiyern30/reka-konsult"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline cursor-pointer"
@@ -342,14 +340,14 @@ export default function Home() {
               onClick={() =>
                 handleImageClick(
                   "image4",
-                  "/Weather-Statistics.png",
+                  "/Reka-Konsult.png",
                   "Yet Another Project Dashboard"
                 )
               }
-              layoutId="image3"
+              layoutId="image4"
             >
               <Image
-                src="/Weather-Statistics.png"
+                src="/Reka-Konsult.png"
                 alt="Yet Another Project Dashboard"
                 width={400}
                 height={300}
@@ -357,7 +355,7 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
-        {/* Row 3 */}
+        {/* Row 5 */}
         <div className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0">
           <motion.div
             className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
@@ -376,11 +374,18 @@ export default function Home() {
               highlights.
               <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                 <div className="cursor-pointer space-x-5">
-                  <ConfettiButton className="hover:underline">
-                    Live Preview
-                  </ConfettiButton>
                   <a
-                    href="https://github.com/Aiyern30/Weather-Statistics"
+                    href="https://ethkl.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline cursor-pointer"
+                  >
+                    <ConfettiButton className="hover:underline">
+                      Live Preview
+                    </ConfettiButton>
+                  </a>
+                  <a
+                    href="https://github.com/Aiyern30/ETHKL"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline cursor-pointer"
@@ -408,7 +413,7 @@ export default function Home() {
                   "Yet Another Project Dashboard"
                 )
               }
-              layoutId="image3"
+              layoutId="image5"
             >
               <Image
                 src="/Weather-Statistics.png"
@@ -437,8 +442,8 @@ export default function Home() {
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                width={800}
-                height={600}
+                width={1200}
+                height={800}
               />
               <button
                 className="px-3 py-1  rounded-full bg-primary text-white absolute top-0 right-0"

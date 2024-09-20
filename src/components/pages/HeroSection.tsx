@@ -28,11 +28,11 @@ export default function HeroSection() {
             </div>
             <div className="text-sm md:text-base">A Designer who</div>
             <div className="text-2xl md:text-5xl">
-              Judges a book by its{" "}
+              udges a book by its{" "}
               <span className="text-tertiary">cover...</span>
             </div>
             <div className="text-sm">
-              Because if the cover does not impress you, what else can?
+              Because if the cover doesn't impress you, what will?
             </div>
           </div>
         </BoxReveal>
@@ -50,10 +50,9 @@ export default function HeroSection() {
           </div>
           <div className="pt-4 text-base md:text-xl">
             With 5 years of software development experience that began in high
-            school, I've honed my skills across various technologies. I believe
-            in the importance of both functionality and design, striving to
-            create solutions that are as visually appealing as they are
-            effective.
+            school, I've honed my skills in various technologies. I believe in
+            the importance of both functionality and design. I strive to create
+            solutions that are as visually appealing as they are effective.
           </div>
         </div>
       </BoxReveal>
