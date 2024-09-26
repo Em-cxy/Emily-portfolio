@@ -36,7 +36,7 @@ const projects = [
     id: 3,
     title: "Reka Konsult Company Profile",
     description:
-      "The Reka Konsult Company Profile is a comprehensive showcase of our company’s vision, values, and services. This web application serves as an engaging platform to inform potential clients and partners about Reka Konsult's capabilities, including company background, services offered, and easy contact information.",
+      "The Reka Konsult Company Profile is a comprehensive showcase of our company's vision, values, and services. This web application serves as an engaging platform to inform potential clients and partners about Reka Konsult's capabilities, including company background, services offered, and easy contact information.",
     imageUrl: "/Reka-Konsult.png",
     livePreviewUrl: "https://reka-konsult.vercel.app/",
     githubRepo: "https://github.com/Aiyern30/reka-konsult",
@@ -60,6 +60,8 @@ export default function ProjectsSection() {
     src: string;
     alt: string;
   } | null>(null);
+
+  console.log("selectedImage", selectedImage);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const projectsToShow = 3;

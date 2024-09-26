@@ -10,6 +10,7 @@ import HeroSection from "@/components/pages/HeroSection";
 import GlobalSection from "@/components/pages/GlobalSection";
 import Certificate from "@/components/pages/Certificate";
 import ProjectsSection from "@/components/pages/ProjectsDetails";
+import ContactForm from "@/components/pages/ContactForm";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -35,6 +36,10 @@ export default function Home() {
       {/* <section className="min-h-screen flex flex-col items-center justify-center px-4">
         <Certificate />
       </section> */}
+
+      <section className="min-h-screen flex items-center justify-center">
+        <ContactForm />{" "}
+      </section>
     </div>
   );
 }
