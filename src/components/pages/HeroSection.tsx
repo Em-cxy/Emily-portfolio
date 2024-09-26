@@ -28,7 +28,7 @@ export default function HeroSection() {
             </div>
             <div className="text-sm md:text-base">A Designer who</div>
             <div className="text-2xl md:text-5xl">
-              udges a book by its{" "}
+              judges a book by its{" "}
               <span className="text-tertiary">cover...</span>
             </div>
             <div className="text-sm">

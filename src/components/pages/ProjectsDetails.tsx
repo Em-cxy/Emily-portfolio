@@ -4,19 +4,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { ConfettiButton } from "../magicui/Confetti";
-import { Button } from "../ui/Button";
 const projects = [
+  // {
+  //   id: 1,
+  //   title: "Weather Forecast Application",
+  //   description:
+  //     "Our Weather Forecast Application provides users with comprehensive weather information, customizable appearance settings, and forecasts extending up to 3 days.",
+  //   imageUrl: "/Weather-Dashboard.png",
+  //   livePreviewUrl: "https://ian-weather-application.vercel.app",
+  //   githubRepo: "https://github.com/Aiyern30/Weather-Application",
+  // },
   {
     id: 1,
-    title: "Weather Forecast Application",
-    description:
-      "Our Weather Forecast Application provides users with comprehensive weather information, customizable appearance settings, and forecasts extending up to 3 days.",
-    imageUrl: "/Weather-Dashboard.png",
-    livePreviewUrl: "https://ian-weather-application.vercel.app",
-    githubRepo: "https://github.com/Aiyern30/Weather-Application",
-  },
-  {
-    id: 2,
     title: "Music Application with Spotify",
     description:
       "SpotWave allows you to search for and listen to Spotify songs with a preview and lyrics. You can also view the top tracks and artists in global rank and come with their all details such as bio, images, albums, and tracks.",
@@ -25,33 +24,35 @@ const projects = [
     githubRepo: "https://github.com/Aiyern30/SpotWave",
   },
   {
-    id: 3,
+    id: 2,
     title: "Expenses Tracker",
     description:
-      "Description of yet another project with its features and highlights.",
+      "The Expenses Tracker is a robust application designed to help users efficiently manage their finances. Track your expenses daily, monthly, and yearly, and gain detailed insights into your spending habits. Key features include expense tracking, managing friend expenses, and effective group expense management during trips.",
     imageUrl: "/Split-Track.png",
     livePreviewUrl: "https://split-track.vercel.app/",
     githubRepo: "https://github.com/Aiyern30/SplitTrack",
   },
   {
-    id: 4,
+    id: 3,
     title: "Reka Konsult Company Profile",
     description:
-      "Description of yet another project with its features and highlights.",
+      "The Reka Konsult Company Profile is a comprehensive showcase of our company’s vision, values, and services. This web application serves as an engaging platform to inform potential clients and partners about Reka Konsult's capabilities, including company background, services offered, and easy contact information.",
     imageUrl: "/Reka-Konsult.png",
     livePreviewUrl: "https://reka-konsult.vercel.app/",
     githubRepo: "https://github.com/Aiyern30/reka-konsult",
   },
-  {
-    id: 5,
-    title: "Ethereum KL hackathon projects",
-    description:
-      "Description of yet another project with its features and highlights.",
-    imageUrl: "/Weather-Statistics.png",
-    livePreviewUrl: "https://ethkl.vercel.app/",
-    githubRepo: "https://github.com/Aiyern30/ETHKL",
-  },
+  // {
+  //   id: 4,
+  //   title: "Ethereum KL hackathon projects",
+  //   description:
+  //     "Description of yet another project with its features and highlights.",
+  //   imageUrl: "/Weather-Statistics.png",
+  //   livePreviewUrl: "https://ethkl.vercel.app/",
+  //   githubRepo: "https://github.com/Aiyern30/ETHKL",
+  // },
 ];
+import { Skeleton } from "@/components/ui";
+import { cn } from "@/lib/utils";
 
 export default function ProjectsSection() {
   const [selectedImage, setSelectedImage] = useState<{
@@ -93,9 +94,33 @@ export default function ProjectsSection() {
     startIndex + projectsToShow
   );
 
+  const totalItemsToShow = projectsToShow;
+  const skeletonsToShow = totalItemsToShow - currentProjects.length;
+
   return (
     <>
       <section className="min-h-screen flex flex-col items-center justify-center text-white container mx-auto space-y-8 select-none mb-20 relative">
+        <div
+          className={cn(
+            "flex justify-center items-center w-full md:w-3/4 mx-auto mt-4 text-black h-16",
+            projects.length <= 3 ? "hidden" : ""
+          )}
+        >
+          <button
+            onClick={prevProjects}
+            className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
+          >
+            Previous
+          </button>
+          <button
+            onClick={nextProjects}
+            className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
+          >
+            Next
+          </button>
+        </div>
+
+        {/* Render Current Projects or Skeletons */}
         {currentProjects.map((project) => (
           <div
             key={project.id}
@@ -166,20 +191,54 @@ export default function ProjectsSection() {
             </motion.div>
           </div>
         ))}
-        <div className="flex justify-center items-center w-full md:w-3/4 mx-auto mt-4 text-black">
-          <button
-            onClick={prevProjects}
-            className=" mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
+
+        {/* {[...Array(skeletonsToShow)].map((_, index) => (
+          <div
+            key={`skeleton-${index}`}
+            className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 "
           >
-            Previous
-          </button>
-          <button
-            onClick={nextProjects}
-            className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
+            <div className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1 hover:scale-105">
+              <Skeleton className="h-6 w-[150px] mb-2" />
+              <Skeleton className="h-4 w-[200px]" />
+              <Skeleton className="h-4 w-full mt-2" />
+              <Skeleton className="h-12 w-full mt-4" />
+            </div>
+            <div className="w-full md:w-1/2 flex items-center justify-center flex-1 hover:scale-105">
+              <Skeleton className="h-40 w-full rounded-lg" />
+            </div>
+          </div>
+        ))} */}
+        {[...Array(skeletonsToShow)].map((_, index) => (
+          <div
+            key={`skeleton-${index}`}
+            className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0"
           >
-            Next
-          </button>
-        </div>
+            <motion.div
+              className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Skeleton className="h-6 w-40" />
+              <Skeleton className="h-8 w-64" />
+              <div className="bg-purple-800 opacity-60 p-4 rounded-xl flex-1 ">
+                <Skeleton className="h-32 w-full" />
+                <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
+                  <div className="space-x-5">
+                    <Skeleton className="h-8 w-24 inline-block" />
+                    <Skeleton className="h-8 w-24 inline-block" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              className="w-full md:w-1/2 flex items-center justify-center flex-1"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Skeleton className="w-[400px] h-[200px]" />
+            </motion.div>
+          </div>
+        ))}
       </section>
 
       <AnimatePresence>
