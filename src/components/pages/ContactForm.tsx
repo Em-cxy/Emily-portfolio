@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/Form";
 import { Input, Textarea } from "@/components/ui";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "emailjs-com"; // Import emailjs
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -52,15 +53,39 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    console.log("data", data);
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    form.reset();
+
+    const formData = {
+      firstname: data.firstName,
+      lastname: data.lastName,
+      email: data.email,
+      contactNumber: data.contactNumber,
+      enquiry: data.message,
+    };
+
+    emailjs
+      .send(
+        "service_kgb3j15", // Your EmailJS service ID
+        "template_2vj3nql", // Your EmailJS template ID
+        formData,
+        "deYKZbFxD1zzhjpFe" // Your EmailJS user ID
+      )
+      .then(() => {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        form.reset();
+      })
+      .catch(() => {
+        toast({
+          title: "Failed to send message.",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
