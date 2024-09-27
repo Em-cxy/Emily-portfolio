@@ -61,8 +61,6 @@ export default function ProjectsSection() {
     alt: string;
   } | null>(null);
 
-  console.log("selectedImage", selectedImage);
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const projectsToShow = 3;
 
