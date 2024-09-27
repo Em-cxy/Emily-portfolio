@@ -76,15 +76,16 @@ const projects = [
     livePreviewUrl: "https://reka-konsult.vercel.app/",
     githubRepo: "https://github.com/Aiyern30/reka-konsult",
   },
-  // {
-  //   id: 4,
-  //   title: "Ethereum KL hackathon projects",
-  //   description:
-  //     "Description of yet another project with its features and highlights.",
-  //   imageUrl: "/Weather-Statistics.png",
-  //   livePreviewUrl: "https://ethkl.vercel.app/",
-  //   githubRepo: "https://github.com/Aiyern30/ETHKL",
-  // },
+  {
+    id: 4,
+    title: "Ethereum KL hackathon projects",
+    label: [],
+    description:
+      "Description of yet another project with its features and highlights.",
+    imageUrl: "/Weather-Statistics.png",
+    livePreviewUrl: "https://ethkl.vercel.app/",
+    githubRepo: "https://github.com/Aiyern30/ETHKL",
+  },
 ];
 import { Button, Skeleton } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -134,107 +135,144 @@ export default function ProjectsSection() {
 
   return (
     <>
-      <section className="min-h-screen flex flex-col items-center justify-center text-white container mx-auto space-y-8 select-none mb-20 relative">
-        <div
-          className={`flex justify-center items-center w-full md:w-3/4 mx-auto mt-4 text-black h-16 ${
-            projects.length <= 3 ? "hidden" : ""
-          }`}
-        >
-          <button
-            onClick={prevProjects}
-            className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
-          >
-            Previous
-          </button>
-          <button
-            onClick={nextProjects}
-            className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
-          >
-            Next
-          </button>
+      <section className="min-h-screen  text-white container mx-auto space-y-8 select-none mb-20 relative">
+        <div className="text-5xl text-center relative mb-8">
+          <div>Recent Projects</div>
+          <div className="h-1 w-64 bg-white mx-auto text-center mt-4"></div>
         </div>
-
-        {/* Render Current Projects */}
-        {currentProjects.map((project) => (
+        <div className="flex flex-col items-center justify-center">
           <div
-            key={project.id}
-            className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0"
+            className={`flex justify-center items-center w-full md:w-3/4 mx-auto mt-4 text-black h-16 ${
+              projects.length <= 3 ? "hidden" : ""
+            }`}
           >
-            <motion.div
-              className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            <button
+              onClick={prevProjects}
+              className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
             >
-              <div className="text-lg font-semibold text-tertiary">
-                Featured project {project.id}
-              </div>
-              <div className="text-2xl font-bold">{project.title}</div>
+              Previous
+            </button>
+            <button
+              onClick={nextProjects}
+              className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
+            >
+              Next
+            </button>
+          </div>
 
-              <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
-                {project.description}
-                <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
-                  <div className="cursor-pointer space-x-5">
-                    <a
-                      href={project.livePreviewUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline cursor-pointer"
-                    >
-                      <ConfettiButton className="hover:underline">
-                        Live Preview
-                      </ConfettiButton>
-                    </a>
-                    <a
-                      href={project.githubRepo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline cursor-pointer"
-                    >
-                      <ConfettiButton className="hover:underline">
-                        View Code
-                      </ConfettiButton>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div
-              className="w-full md:w-1/2 flex items-center justify-center flex-1"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          {/* Render Current Projects */}
+          {currentProjects.map((project) => (
+            <div
+              key={project.id}
+              className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 m-4"
             >
               <motion.div
-                className="w-full h-full flex flex-col items-center justify-center bg-transparent border-0 cursor-pointer"
-                onClick={() =>
-                  handleImageClick(
-                    `image${project.id}`,
-                    project.imageUrl,
-                    project.title
-                  )
-                }
-                layoutId={`image${project.id}`}
+                className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <Image
-                  src={project.imageUrl}
-                  alt={`${project.title} Dashboard`}
-                  width={400}
-                  height={300}
-                />
+                <div className="text-lg font-semibold text-tertiary">
+                  Featured project {project.id}
+                </div>
+                <div className="text-2xl font-bold">{project.title}</div>
 
-                {/* Centered buttons */}
-                <div className="flex flex-wrap gap-2 justify-center mt-2">
-                  {project.label.map((label) => (
-                    <Button key={label} variant="outline" className="text-xs">
-                      {label}
-                    </Button>
-                  ))}
+                <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
+                  {project.description}
+                  <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
+                    <div className="cursor-pointer space-x-5">
+                      <a
+                        href={project.livePreviewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline cursor-pointer"
+                      >
+                        <ConfettiButton className="hover:underline">
+                          Live Preview
+                        </ConfettiButton>
+                      </a>
+                      <a
+                        href={project.githubRepo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline cursor-pointer"
+                      >
+                        <ConfettiButton className="hover:underline">
+                          View Code
+                        </ConfettiButton>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
-            </motion.div>
-          </div>
-        ))}
+              <motion.div
+                className="w-full md:w-1/2 flex items-center justify-center flex-1"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <motion.div
+                  className="w-full h-full flex flex-col items-center justify-center bg-transparent border-0 cursor-pointer"
+                  onClick={() =>
+                    handleImageClick(
+                      `image${project.id}`,
+                      project.imageUrl,
+                      project.title
+                    )
+                  }
+                  layoutId={`image${project.id}`}
+                >
+                  <Image
+                    src={project.imageUrl}
+                    alt={`${project.title} Dashboard`}
+                    width={400}
+                    height={300}
+                  />
+
+                  {/* Centered buttons */}
+                  <div className="flex flex-wrap gap-2 justify-center mt-2">
+                    {project.label.map((label) => (
+                      <Button key={label} variant="outline" className="text-xs">
+                        {label}
+                      </Button>
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          ))}
+          {[...Array(skeletonsToShow)].map((_, index) => (
+            <div
+              key={`skeleton-${index}`}
+              className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 m-4"
+            >
+              <motion.div
+                className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <Skeleton className="h-6 w-40" />
+                <Skeleton className="h-8 w-64" />
+                <div className="bg-purple-800 opacity-60 p-4 rounded-xl flex-1 ">
+                  <Skeleton className="h-32 w-full" />
+                  <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
+                    <div className="space-x-5">
+                      <Skeleton className="h-8 w-24 inline-block" />
+                      <Skeleton className="h-8 w-24 inline-block" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                className="w-full md:w-1/2 flex items-center justify-center flex-1"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <Skeleton className="w-[400px] h-[200px]" />
+              </motion.div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <AnimatePresence>
