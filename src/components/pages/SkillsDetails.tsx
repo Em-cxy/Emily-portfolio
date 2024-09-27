@@ -83,19 +83,10 @@ const SkillsDetails = () => {
             key={item.id}
             className="flex flex-col items-center text-center bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105"
           >
-            <div className="relative mb-4">
-              <Image
-                src="/pentagon.png"
-                alt="Pentagon"
-                width={170}
-                height={170}
-                className="object-contain"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                {item.icon}
-              </div>
+            <div className="flex items-center justify-center mb-4 text-6xl text-white">
+              {item.icon}
             </div>
-            <div className="text-xl font-bold ">{item.title}</div>
+            <div className="text-xl font-bold">{item.title}</div>
             <div className="text-gray-300">{item.details}</div>
           </div>
         ))}
@@ -113,11 +104,15 @@ const SkillsDetails = () => {
               <div className="w-48 text-left pl-3 bg-purple-700 h-6">
                 {skill.name}
               </div>
-              <div className="flex-1 bg-[#3a2e4b] h-6">
+              <div className="flex-1 bg-[#3a2e4b] h-6 relative group">
                 <div
-                  className="bg-[#b57ef1] h-full rounded-r-full"
+                  className="bg-[#b57ef1] h-full rounded-r-full transition-all duration-300 ease-in-out group-hover:bg-purple-400 group-hover:scale-x-105 relative"
                   style={{ width: skill.level > 100 ? 100 : `${skill.level}%` }}
                 ></div>
+
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-white font-bold">
+                  {skill.level}%
+                </div>
               </div>
             </div>
           ))}
@@ -128,11 +123,15 @@ const SkillsDetails = () => {
               <div className="w-48 text-left pl-3 bg-purple-700 h-6">
                 {skill.name}
               </div>
-              <div className="flex-1 bg-[#3a2e4b] h-6">
+              <div className="flex-1 bg-[#3a2e4b] h-6 relative group">
                 <div
-                  className="bg-[#b57ef1] h-full rounded-r-full"
+                  className="bg-[#b57ef1] h-full rounded-r-full transition-all duration-300 ease-in-out group-hover:bg-purple-400 group-hover:scale-x-105 relative"
                   style={{ width: skill.level > 100 ? 100 : `${skill.level}%` }}
                 ></div>
+
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-white font-bold">
+                  {skill.level}%
+                </div>
               </div>
             </div>
           ))}
