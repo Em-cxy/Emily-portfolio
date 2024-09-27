@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { FcAlarmClock } from "react-icons/fc";
 import { IoDesktopOutline } from "react-icons/io5";
 import { FaLightbulb, FaRocket } from "react-icons/fa";
@@ -70,7 +69,7 @@ const toolsSkills = [
 const SkillsDetails = () => {
   return (
     <div
-      className="text-white container mx-auto px-4 py-10 "
+      className="text-white container mx-auto px-4 py-10"
       style={{ backgroundColor: "#1a0b2e" }}
     >
       <div className="text-5xl text-center relative mb-8">
@@ -92,51 +91,94 @@ const SkillsDetails = () => {
         ))}
       </div>
 
-      {/* Skills with Progress Bars */}
-      <div className="text-5xl text-center mb-4">
-        <div>Skills</div>
-        <div className="h-1 w-16 bg-white mx-auto text-center mt-4"></div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="space-y-4">
-          {programmingSkills.map((skill) => (
-            <div className="flex items-center w-full" key={skill.id}>
-              <div className="w-48 text-left pl-3 bg-purple-700 h-6">
-                {skill.name}
-              </div>
-              <div className="flex-1 bg-[#3a2e4b] h-6 relative group">
-                <div
-                  className="bg-[#b57ef1] h-full rounded-r-full transition-all duration-300 ease-in-out group-hover:bg-purple-400 group-hover:scale-x-105 relative"
-                  style={{ width: skill.level > 100 ? 100 : `${skill.level}%` }}
-                ></div>
-
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-white font-bold">
-                  {skill.level}%
-                </div>
-              </div>
-            </div>
-          ))}
+      {/* Skills Index */}
+      <div className="flex justify-between mb-4">
+        <div className="text-4xl text-center w-1/2">
+          <div>Programming Skills</div>
+          <div className="h-1 w-16 bg-white mx-auto text-center mt-2"></div>
         </div>
-        <div className="space-y-4">
-          {toolsSkills.map((skill) => (
-            <div className="flex items-center w-full" key={skill.id}>
-              <div className="w-48 text-left pl-3 bg-purple-700 h-6">
-                {skill.name}
-              </div>
-              <div className="flex-1 bg-[#3a2e4b] h-6 relative group">
-                <div
-                  className="bg-[#b57ef1] h-full rounded-r-full transition-all duration-300 ease-in-out group-hover:bg-purple-400 group-hover:scale-x-105 relative"
-                  style={{ width: skill.level > 100 ? 100 : `${skill.level}%` }}
-                ></div>
-
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-white font-bold">
-                  {skill.level}%
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="text-4xl text-center w-1/2">
+          <div>Tools Skills</div>
+          <div className="h-1 w-16 bg-white mx-auto text-center mt-2"></div>
         </div>
       </div>
+
+      {/* Skills Containers */}
+      <div className="flex">
+        {/* Programming Skills */}
+        <div className="flex-1 pr-4">
+          <div
+            className={`max-h-[384px] ${
+              programmingSkills.length > 10 ? "overflow-y-auto" : ""
+            } space-y-4`}
+          >
+            {programmingSkills.map((skill) => (
+              <div className="flex items-center w-full" key={skill.id}>
+                <div className="w-48 text-left pl-3 bg-purple-700 h-6">
+                  {skill.name}
+                </div>
+                <div className="flex-1 bg-[#3a2e4b] h-6 relative group">
+                  <div
+                    className="bg-[#b57ef1] h-full rounded-r-full transition-all duration-300 ease-in-out group-hover:bg-purple-400 group-hover:scale-x-105 relative"
+                    style={{
+                      width: skill.level > 100 ? 100 : `${skill.level}%`,
+                    }}
+                  ></div>
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-white font-bold">
+                    {skill.level}%
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tools Skills */}
+        <div className="flex-1 pl-4">
+          <div
+            className={`max-h-[384px] ${
+              toolsSkills.length > 10 ? "overflow-y-auto" : ""
+            } space-y-4`}
+          >
+            {toolsSkills.map((skill) => (
+              <div className="flex items-center w-full" key={skill.id}>
+                <div className="w-48 text-left pl-3 bg-purple-700 h-6">
+                  {skill.name}
+                </div>
+                <div className="flex-1 bg-[#3a2e4b] h-6 relative group">
+                  <div
+                    className="bg-[#b57ef1] h-full rounded-r-full transition-all duration-300 ease-in-out group-hover:bg-purple-400 group-hover:scale-x-105 relative"
+                    style={{
+                      width: skill.level > 100 ? 100 : `${skill.level}%`,
+                    }}
+                  ></div>
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-white font-bold">
+                    {skill.level}%
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        /* Custom Scrollbar Styles */
+        .overflow-y-auto::-webkit-scrollbar {
+          width: 12px; /* Width of the scrollbar */
+        }
+
+        .overflow-y-auto::-webkit-scrollbar-thumb {
+          background-color: #b57ef1; /* Scrollbar color */
+          border-radius: 10px; /* Rounded corners */
+        }
+
+        .overflow-y-auto::-webkit-scrollbar-track {
+          background: #3a2e4b; /* Track color */
+        }
+      `}</style>
     </div>
   );
 };

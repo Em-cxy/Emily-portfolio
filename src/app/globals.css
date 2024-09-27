@@ -60,7 +60,7 @@
   }
   body {
     background: #1a0b2e;
-    cursor: none;
+    /* cursor: none; */
   }
 
   .custom-cursor {
