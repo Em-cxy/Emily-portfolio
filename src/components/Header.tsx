@@ -4,7 +4,11 @@ import { FiMenu } from "react-icons/fi";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const Header = () => {
+interface HeaderProps {
+  activeSection: string; // This can be more specific if you have predefined sections
+}
+
+const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -29,37 +33,81 @@ const Header = () => {
         {/* Menu Items */}
         <div className={`hidden lg:flex lg:items-center lg:w-auto`}>
           <ul className="flex lg:flex-row lg:space-x-14 text-[18px] lg:items-center">
-            <li className="hover:text-blue-500 hover:font-semibold">
+            <li
+              className={`hover:text-blue-500 hover:font-semibold ${
+                activeSection === "home" ? "text-blue-500" : ""
+              }`}
+            >
               <Link href="/">Home</Link>
             </li>
-
-            <li className="hover:text-blue-500 hover:font-semibold">
+            <li
+              className={`hover:text-blue-500 hover:font-semibold ${
+                activeSection === "tools" ? "text-blue-500" : ""
+              }`}
+            >
+              <Link href="#tools">Tools</Link>
+            </li>
+            <li
+              className={`hover:text-blue-500 hover:font-semibold ${
+                activeSection === "projects" ? "text-blue-500" : ""
+              }`}
+            >
               <Link href="#projects">Projects</Link>
             </li>
-            <li className="hover:text-blue-500 hover:font-semibold">
+            <li
+              className={`hover:text-blue-500 hover:font-semibold ${
+                activeSection === "about" ? "text-blue-500" : ""
+              }`}
+            >
               <Link href="#about">About</Link>
             </li>
-            <li className="hover:text-blue-500 hover:font-semibold">
+            <li
+              className={`hover:text-blue-500 hover:font-semibold ${
+                activeSection === "contact-us" ? "text-blue-500" : ""
+              }`}
+            >
               <Link href="#contact-us">Contact Us</Link>
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Menu Items for Mobile View */}
+      {/* Mobile Menu Items */}
       <div className={`${isMenuOpen ? "block" : "hidden"} lg:hidden mt-4`}>
         <ul className="flex flex-col space-y-4 text-[18px]">
-          <li className="hover:text-blue-500 hover:font-semibold">
+          <li
+            className={`hover:text-blue-500 hover:font-semibold ${
+              activeSection === "home" ? "text-blue-500" : ""
+            }`}
+          >
             <Link href="/">Home</Link>
           </li>
-
-          <li className="hover:text-blue-500 hover:font-semibold">
+          <li
+            className={`hover:text-blue-500 hover:font-semibold ${
+              activeSection === "tools" ? "text-blue-500" : ""
+            }`}
+          >
+            <Link href="#tools">Tools</Link>
+          </li>
+          <li
+            className={`hover:text-blue-500 hover:font-semibold ${
+              activeSection === "projects" ? "text-blue-500" : ""
+            }`}
+          >
             <Link href="#projects">Projects</Link>
           </li>
-          <li className="hover:text-blue-500 hover:font-semibold">
+          <li
+            className={`hover:text-blue-500 hover:font-semibold ${
+              activeSection === "about" ? "text-blue-500" : ""
+            }`}
+          >
             <Link href="#about">About</Link>
           </li>
-          <li className="hover:text-blue-500 hover:font-semibold">
+          <li
+            className={`hover:text-blue-500 hover:font-semibold ${
+              activeSection === "contact-us" ? "text-blue-500" : ""
+            }`}
+          >
             <Link href="#contact-us">Contact Us</Link>
           </li>
         </ul>

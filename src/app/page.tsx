@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import { Meteors } from "@/components/magicui/index";
@@ -16,10 +16,38 @@ import Header from "@/components/Header";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // Trigger when 50% of the section is in view
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id.toLowerCase());
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
 
   return (
     <div>
-      <Header />
+      <Header activeSection={activeSection} />
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <Meteors number={100} />
       </div>
@@ -27,11 +55,17 @@ export default function Home() {
         className="progress-bar"
         style={{ scaleX: scrollYProgress }}
       />
-      <section className="min-h-screen flex flex-col items-center justify-center px-4">
+      <section
+        className="min-h-screen flex flex-col items-center justify-center px-4"
+        id="home"
+      >
         <HeroSection />
       </section>
 
-      <section className="min-h-screen flex items-center justify-center">
+      <section
+        className="min-h-screen flex items-center justify-center"
+        id="tools"
+      >
         <GlobalSection />
       </section>
 
@@ -39,11 +73,14 @@ export default function Home() {
       {/* <section className="min-h-screen flex flex-col items-center justify-center px-4">
         <Certificate />
       </section> */}
-      <section className="min-h-screen px-4 ">
+      <section className="min-h-screen px-4 " id="about">
         <SkillsDetails />
       </section>
-      <section className="min-h-screen flex items-center justify-center">
-        <ContactForm />{" "}
+      <section
+        className="min-h-screen flex items-center justify-center"
+        id="contact-us"
+      >
+        <ContactForm />
       </section>
     </div>
   );

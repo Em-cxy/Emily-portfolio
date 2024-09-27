@@ -87,7 +87,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="container mx-auto py-10 px-4 sm:px-0" id="contact-us">
+    <div className="container mx-auto py-10 px-4 sm:px-0">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Contact Form */}
         <div className="bg-white bg-opacity-5 p-8 rounded-lg shadow-md">
