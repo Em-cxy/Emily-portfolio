@@ -17,7 +17,7 @@ import {
 import { Input, Textarea } from "@/components/ui";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "emailjs-com"; // Import emailjs
-
+import { cn } from "@/lib/utils";
 const formSchema = z.object({
   firstName: z.string().min(2, {
     message: "First name must be at least 2 characters.",
@@ -64,10 +64,10 @@ export default function ContactForm() {
 
     emailjs
       .send(
-        "service_kgb3j15", // Your EmailJS service ID
-        "template_2vj3nql", // Your EmailJS template ID
+        "service_kgb3j15",
+        "template_2vj3nql",
         formData,
-        "deYKZbFxD1zzhjpFe" // Your EmailJS user ID
+        "deYKZbFxD1zzhjpFe"
       )
       .then(() => {
         toast({
@@ -171,7 +171,11 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            className={cn("w-full text-white")}
+            disabled={isSubmitting}
+          >
             {isSubmitting ? "Sending..." : "Send message"}
           </Button>
         </form>
