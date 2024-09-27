@@ -93,24 +93,31 @@ const SkillsDetails = () => {
 
       {/* Skills Index */}
       <div className="flex justify-between mb-4">
-        <div className="text-4xl text-center w-1/2">
+        <div className="text-4xl text-center w-full sm:hidden block">
+          <div>Skills</div>
+          <div className="h-1 w-16 bg-white mx-auto text-center mt-2"></div>
+        </div>
+        <div className="text-4xl text-center w-1/2 sm:block hidden">
           <div>Programming Skills</div>
           <div className="h-1 w-16 bg-white mx-auto text-center mt-2"></div>
         </div>
-        <div className="text-4xl text-center w-1/2">
+        <div className="text-4xl text-center w-1/2 sm:block hidden">
           <div>Tools Skills</div>
           <div className="h-1 w-16 bg-white mx-auto text-center mt-2"></div>
         </div>
       </div>
 
       {/* Skills Containers */}
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         {/* Programming Skills */}
-        <div className="flex-1 pr-4">
+        <div className="flex-1 pr-0 md:pr-4 mb-4 md:mb-0">
           <div
-            className={`max-h-[384px] ${
-              programmingSkills.length > 10 ? "overflow-y-auto" : ""
+            className={`${
+              programmingSkills.length > 10
+                ? " sm:max-h-[384px] sm:overflow-y-auto "
+                : ""
             } space-y-4`}
+            id="overflow-y-auto"
           >
             {programmingSkills.map((skill) => (
               <div className="flex items-center w-full" key={skill.id}>
@@ -135,11 +142,14 @@ const SkillsDetails = () => {
         </div>
 
         {/* Tools Skills */}
-        <div className="flex-1 pl-4">
+        <div className="flex-1 pl-0 md:pl-4">
           <div
-            className={`max-h-[384px] ${
-              toolsSkills.length > 10 ? "overflow-y-auto" : ""
+            className={`${
+              toolsSkills.length > 10
+                ? "sm:max-h-[384px] sm:overflow-y-auto"
+                : ""
             } space-y-4`}
+            id="overflow-y-auto"
           >
             {toolsSkills.map((skill) => (
               <div className="flex items-center w-full" key={skill.id}>
@@ -166,16 +176,16 @@ const SkillsDetails = () => {
 
       <style jsx>{`
         /* Custom Scrollbar Styles */
-        .overflow-y-auto::-webkit-scrollbar {
+        #overflow-y-auto::-webkit-scrollbar {
           width: 12px; /* Width of the scrollbar */
         }
 
-        .overflow-y-auto::-webkit-scrollbar-thumb {
+        #overflow-y-auto::-webkit-scrollbar-thumb {
           background-color: #b57ef1; /* Scrollbar color */
           border-radius: 10px; /* Rounded corners */
         }
 
-        .overflow-y-auto::-webkit-scrollbar-track {
+        #overflow-y-auto::-webkit-scrollbar-track {
           background: #3a2e4b; /* Track color */
         }
       `}</style>
