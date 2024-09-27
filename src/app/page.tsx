@@ -12,13 +12,14 @@ import Certificate from "@/components/pages/Certificate";
 import ProjectsSection from "@/components/pages/ProjectsDetails";
 import ContactForm from "@/components/pages/ContactForm";
 import SkillsDetails from "@/components/pages/SkillsDetails";
+import Header from "@/components/Header";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
 
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <Meteors number={100} />
       </div>

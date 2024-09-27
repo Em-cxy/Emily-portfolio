@@ -135,7 +135,10 @@ export default function ProjectsSection() {
 
   return (
     <>
-      <section className="min-h-screen  text-white container mx-auto space-y-8 select-none mb-20 relative">
+      <section
+        className="min-h-screen  text-white container mx-auto space-y-8 select-none mb-20 relative"
+        id="projects"
+      >
         <div className="text-5xl text-center relative mb-8">
           <div>Recent Projects</div>
           <div className="h-1 w-64 bg-white mx-auto text-center mt-4"></div>

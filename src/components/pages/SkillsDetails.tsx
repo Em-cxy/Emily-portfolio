@@ -71,6 +71,7 @@ const SkillsDetails = () => {
     <div
       className="text-white container mx-auto px-4 py-10"
       style={{ backgroundColor: "#1a0b2e" }}
+      id="about"
     >
       <div className="text-5xl text-center relative mb-8">
         <div>About</div>
