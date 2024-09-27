@@ -58,9 +58,11 @@ export default function GlobalSection() {
     <div className="container flex flex-col items-center text-center text-white">
       <div className="max-w-xl mx-auto mb-5 md:text-xl">
         I'm currently looking to join a{" "}
-        <span className="text-tertiary">cross-functional</span> team that values
-        improving people's lives through accessible design
+        <span className="text-tertiary">cross-functional</span> team dedicated
+        to enhancing lives through accessible design. The icons below represent
+        the tools and technologies I have learned and worked with.
       </div>
+
       <IconCloud iconSlugs={slugs} />
     </div>
   );
