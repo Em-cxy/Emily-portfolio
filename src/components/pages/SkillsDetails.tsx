@@ -130,7 +130,7 @@ const SkillsDetails = () => {
               </div>
               <div className="flex-1 bg-[#3a2e4b] h-6">
                 <div
-                  className="bg-[#b57ef1] h-full"
+                  className="bg-[#b57ef1] h-full rounded-r-full"
                   style={{ width: skill.level > 100 ? 100 : `${skill.level}%` }}
                 ></div>
               </div>

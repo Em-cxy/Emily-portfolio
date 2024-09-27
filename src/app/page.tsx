@@ -29,9 +29,7 @@ export default function Home() {
       <section className="min-h-screen flex flex-col items-center justify-center px-4">
         <HeroSection />
       </section>
-      <section className="min-h-screen px-4 ">
-        <SkillsDetails />
-      </section>
+
       <section className="min-h-screen flex items-center justify-center">
         <GlobalSection />
       </section>
@@ -40,7 +38,9 @@ export default function Home() {
       {/* <section className="min-h-screen flex flex-col items-center justify-center px-4">
         <Certificate />
       </section> */}
-
+      <section className="min-h-screen px-4 ">
+        <SkillsDetails />
+      </section>
       <section className="min-h-screen flex items-center justify-center">
         <ContactForm />{" "}
       </section>
