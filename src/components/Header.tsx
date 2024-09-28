@@ -56,6 +56,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             </li>
             <li
               className={`hover:text-blue-500 hover:font-semibold ${
+                activeSection === "certs" ? "text-blue-500" : ""
+              }`}
+            >
+              <Link href="#certs">Certs</Link>
+            </li>
+            <li
+              className={`hover:text-blue-500 hover:font-semibold ${
                 activeSection === "about" ? "text-blue-500" : ""
               }`}
             >
@@ -95,6 +102,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             }`}
           >
             <Link href="#projects">Projects</Link>
+          </li>
+          <li
+            className={`hover:text-blue-500 hover:font-semibold ${
+              activeSection === "certs" ? "text-blue-500" : ""
+            }`}
+          >
+            <Link href="#certs">Certs</Link>
           </li>
           <li
             className={`hover:text-blue-500 hover:font-semibold ${

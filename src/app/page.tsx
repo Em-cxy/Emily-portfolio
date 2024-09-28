@@ -2,10 +2,8 @@
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import Image from "next/image";
 import { Meteors } from "@/components/magicui/index";
 
-import { ConfettiButton } from "@/components/magicui/Confetti";
 import HeroSection from "@/components/pages/HeroSection";
 import GlobalSection from "@/components/pages/GlobalSection";
 import Certificate from "@/components/pages/Certificate";
@@ -70,9 +68,12 @@ export default function Home() {
       </section>
 
       <ProjectsSection />
-      {/* <section className="min-h-screen flex flex-col items-center justify-center px-4">
+      <section
+        className="min-h-screen flex flex-col items-center justify-center px-4"
+        id="certs"
+      >
         <Certificate />
-      </section> */}
+      </section>
       <section className="min-h-screen px-4 " id="about">
         <SkillsDetails />
       </section>

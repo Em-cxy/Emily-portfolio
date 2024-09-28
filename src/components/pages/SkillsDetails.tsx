@@ -68,10 +68,7 @@ const toolsSkills = [
 
 const SkillsDetails = () => {
   return (
-    <div
-      className="text-white container mx-auto px-4 py-10"
-      style={{ backgroundColor: "#1a0b2e" }}
-    >
+    <div className="text-white container mx-auto px-4 py-10">
       <div className="text-5xl text-center relative mb-8">
         <div className="font-primary">About</div>
         <div className="h-1 w-16 bg-white mx-auto text-center mt-4"></div>
