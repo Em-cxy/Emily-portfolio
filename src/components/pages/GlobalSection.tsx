@@ -57,7 +57,7 @@ export default function GlobalSection() {
   return (
     <div className="container flex flex-col items-center text-center text-white">
       <div className="text-5xl text-center relative mb-8">
-        <div>Tools & Technologies</div>
+        <div className="font-primary">Tools & Technologies</div>
         <div className="h-1 w-44 bg-white mx-auto text-center mt-4"></div>
       </div>
       <div className="max-w-xl mx-auto mb-5 md:text-xl">

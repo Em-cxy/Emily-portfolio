@@ -87,7 +87,7 @@ const projects = [
     githubRepo: "https://github.com/Aiyern30/ETHKL",
   },
 ];
-import { Button, Skeleton } from "@/components/ui";
+import { Badge, Button, Skeleton } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 export default function ProjectsSection() {
@@ -140,7 +140,7 @@ export default function ProjectsSection() {
         id="projects"
       >
         <div className="text-5xl text-center relative mb-8">
-          <div>Recent Projects</div>
+          <div className="font-primary">Recent Projects</div>
           <div className="h-1 w-64 bg-white mx-auto text-center mt-4"></div>
         </div>
         <div className="flex flex-col items-center justify-center">
@@ -235,9 +235,13 @@ export default function ProjectsSection() {
                   {/* Centered buttons */}
                   <div className="flex flex-wrap gap-2 justify-center mt-2">
                     {project.label.map((label) => (
-                      <Button key={label} variant="outline" className="text-xs">
+                      <Badge
+                        key={label}
+                        variant="secondary"
+                        className="text-xs"
+                      >
                         {label}
-                      </Button>
+                      </Badge>
                     ))}
                   </div>
                 </motion.div>

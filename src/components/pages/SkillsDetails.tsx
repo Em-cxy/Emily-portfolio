@@ -73,7 +73,7 @@ const SkillsDetails = () => {
       style={{ backgroundColor: "#1a0b2e" }}
     >
       <div className="text-5xl text-center relative mb-8">
-        <div>About</div>
+        <div className="font-primary">About</div>
         <div className="h-1 w-16 bg-white mx-auto text-center mt-4"></div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
@@ -94,15 +94,15 @@ const SkillsDetails = () => {
       {/* Skills Index */}
       <div className="flex justify-between mb-4">
         <div className="text-4xl text-center w-full sm:hidden block">
-          <div>Skills</div>
+          <div className="font-secondary">Skills</div>
           <div className="h-1 w-16 bg-white mx-auto text-center mt-2"></div>
         </div>
         <div className="text-4xl text-center w-1/2 sm:block hidden">
-          <div>Programming Skills</div>
+          <div className="font-secondary">Programming Skills</div>
           <div className="h-1 w-16 bg-white mx-auto text-center mt-2"></div>
         </div>
         <div className="text-4xl text-center w-1/2 sm:block hidden">
-          <div>Tools Skills</div>
+          <div className="font-secondary">Tools Skills</div>
           <div className="h-1 w-16 bg-white mx-auto text-center mt-2"></div>
         </div>
       </div>
