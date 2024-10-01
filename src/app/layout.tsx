@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { PrimeReactProvider } from "primereact/api";
+import { Toaster } from "@/components/ui";
 
 // import CustomCursor from "@/components/CustomCursor";
 
@@ -54,6 +55,8 @@ export default function RootLayout({
         </head>
         <body className={inter.className}>
           {/* <CustomCursor /> */}
+          <Toaster />
+
           {children}
         </body>
       </html>
