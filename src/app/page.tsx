@@ -54,7 +54,7 @@ export default function Home() {
         style={{ scaleX: scrollYProgress }}
       />
       <section
-        className="min-h-screen flex flex-col items-center justify-center px-4"
+        className="min-h-screen flex flex-col items-center justify-center px-4 mt-36 sm:mt-24"
         id="home"
       >
         <HeroSection />
