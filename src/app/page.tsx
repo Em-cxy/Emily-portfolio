@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { useEffect, useState } from "react";
+import { ScrollTop } from "primereact/scrolltop";
 
 import { Meteors } from "@/components/magicui/index";
 
@@ -83,6 +84,11 @@ export default function Home() {
       >
         <ContactForm />
       </section>
+      <ScrollTop
+        threshold={100}
+        className="w-2rem h-2rem border-round bg-tertiary"
+        icon="pi pi-arrow-up text-base"
+      />
     </div>
   );
 }
