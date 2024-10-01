@@ -22,7 +22,7 @@ export default function Home() {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5, // Trigger when 50% of the section is in view
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver((entries) => {

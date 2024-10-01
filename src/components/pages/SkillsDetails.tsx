@@ -2,6 +2,7 @@ import React from "react";
 import { FcAlarmClock } from "react-icons/fc";
 import { IoDesktopOutline } from "react-icons/io5";
 import { FaLightbulb, FaRocket } from "react-icons/fa";
+import Framework from "./Framework";
 
 const About = [
   {
@@ -73,6 +74,7 @@ const SkillsDetails = () => {
         <div className="font-primary">About</div>
         <div className="h-1 w-16 bg-white mx-auto text-center mt-4"></div>
       </div>
+      <Framework />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
         {About.map((item) => (
           <div
