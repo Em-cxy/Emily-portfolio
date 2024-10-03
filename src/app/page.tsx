@@ -43,7 +43,8 @@ const items = [
   },
 ];
 
-import { useMediaQuery } from "react-responsive"; // Import the useMediaQuery hook
+import { useMediaQuery } from "react-responsive";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -51,7 +52,7 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // Set the client flag to true
+    setIsClient(true);
   }, []);
 
   useEffect(() => {
@@ -81,8 +82,7 @@ export default function Home() {
     };
   }, []);
 
-  // Create media queries
-  const isMobile = useMediaQuery({ maxWidth: 768 }); // Adjust the breakpoint as needed
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
     <div>
@@ -126,7 +126,7 @@ export default function Home() {
       </section>
       <ScrollTop
         threshold={100}
-        className="w-2rem h-2rem border-round bg-tertiary"
+        className={cn(" border-round bg-tertiary", isMobile ? "mb-24" : "")}
         icon="pi pi-arrow-up text-base"
       />
 
