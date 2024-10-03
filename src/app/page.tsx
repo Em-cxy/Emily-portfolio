@@ -130,7 +130,7 @@ export default function Home() {
         icon="pi pi-arrow-up text-base"
       />
 
-      {isClient && (
+      {isClient && !isMobile && (
         <Dock
           model={items.map((item) => ({
             label: item.label,
