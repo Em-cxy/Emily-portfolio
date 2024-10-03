@@ -12,10 +12,47 @@ import ProjectsSection from "@/components/pages/ProjectsDetails";
 import ContactForm from "@/components/pages/ContactForm";
 import SkillsDetails from "@/components/pages/SkillsDetails";
 import Header from "@/components/Header";
+import { Dock } from "primereact/dock";
+import { SocialIcon } from "react-social-icons";
+
+const items = [
+  {
+    label: "LinkedIn",
+    icon: () => <SocialIcon network="linkedin" />,
+    url: "https://www.linkedin.com/in/ian-gan-346547279/",
+  },
+  {
+    label: "GitHub",
+    icon: () => <SocialIcon network="github" />,
+    url: "https://github.com/Aiyern30",
+  },
+  {
+    label: "Discord",
+    icon: () => <SocialIcon network="discord" />,
+    url: "https://discord.gg/tAuqPG83",
+  },
+  {
+    label: "Instagram",
+    icon: () => <SocialIcon network="instagram" />,
+    url: "https://www.instagram.com/_aiyern_/",
+  },
+  {
+    label: "WhatsApp",
+    icon: () => <SocialIcon network="whatsapp" />,
+    url: "https://wa.me/+60182133211?text='Type%20your%20message%20here%20%3A'",
+  },
+];
+
+import { useMediaQuery } from "react-responsive"; // Import the useMediaQuery hook
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const [activeSection, setActiveSection] = useState("home");
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Set the client flag to true
+  }, []);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -43,6 +80,9 @@ export default function Home() {
       });
     };
   }, []);
+
+  // Create media queries
+  const isMobile = useMediaQuery({ maxWidth: 768 }); // Adjust the breakpoint as needed
 
   return (
     <div>
@@ -89,6 +129,18 @@ export default function Home() {
         className="w-2rem h-2rem border-round bg-tertiary"
         icon="pi pi-arrow-up text-base"
       />
+
+      {isClient && (
+        <Dock
+          model={items.map((item) => ({
+            label: item.label,
+            icon: item.icon,
+            command: () => window.open(item.url, "_blank"),
+          }))}
+          position={isMobile ? "bottom" : "right"} // Conditional position based on screen size
+          className={`fixed ${isMobile ? "bottom-0" : "right-0"}`} // Use Tailwind CSS for positioning
+        />
+      )}
     </div>
   );
 }

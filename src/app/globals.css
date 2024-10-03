@@ -67,39 +67,4 @@
     background: #1a0b2e;
     /* cursor: none; */
   }
-
-  .custom-cursor {
-    position: absolute;
-    width: 50px; /* Outer circle size */
-    height: 50px;
-    border: 2px solid rgba(255, 255, 255, 1.5); /* Circle border */
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    transition: transform 0.15s ease; /* Smooth movement */
-  }
-
-  .custom-cursor-dot {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: transform 0.05s ease;
-  }
-
-  .progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: purple;
-    transform-origin: 0%;
-    z-index: 9999;
-  }
 }
