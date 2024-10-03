@@ -23,7 +23,7 @@ export default function ControlledDoc() {
             onClick={() => handleIndexChange(index)}
             className={cn(
               "py-2 px-3 rounded-full hover:bg-white hover:text-black bg-secondary",
-              activeIndex.includes(index) ? "bg-tertiary text-white" : ""
+              activeIndex.includes(index) ? "" : ""
             )}
           >
             {index + 1}
@@ -37,17 +37,9 @@ export default function ControlledDoc() {
           const newIndex = Array.isArray(e.index) ? e.index : [e.index];
           setActiveIndex(newIndex);
         }}
-        pt={{ root: { className: "!bg-tertiary" } }}
-        style={{ backgroundColor: "red" }}
+        style={{ backgroundColor: "red !important" }}
       >
-        <AccordionTab
-          header={<div className="p-3">walaooo</div>}
-          className="!bg-tertiary"
-          pt={{
-            header: { className: "bg-tertiary " },
-            content: { className: "bg-tertiary" },
-          }}
-        >
+        <AccordionTab header={<div className="p-3 bg-tertiary">walaooo</div>}>
           <p className="m-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -59,7 +51,7 @@ export default function ControlledDoc() {
           </p>
         </AccordionTab>
         <AccordionTab
-          header={<div className="bg-tertiary text-white p-3">Header II</div>}
+          header={<div className=" p-3">Header II</div>}
           className="!bg-tertiary"
         >
           <p className="m-0">
@@ -73,7 +65,7 @@ export default function ControlledDoc() {
           </p>
         </AccordionTab>
         <AccordionTab
-          header={<div className="bg-tertiary text-white p-3">Header III</div>}
+          header={<div className=" p-3">Header III</div>}
           className="!bg-tertiary"
         >
           <p className="m-0">

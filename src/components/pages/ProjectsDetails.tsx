@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+import { Image } from "primereact/image";
+
 import { useState } from "react";
 import { ConfettiButton } from "../magicui/Confetti";
 const projects = [
@@ -16,7 +17,7 @@ const projects = [
   // },
   {
     id: 1,
-    title: "Music Application with Spotify",
+    title: "Music Application with Spotify (SpotWave)",
     label: [
       "Spotify",
       "Next.js",
@@ -37,7 +38,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Expenses Tracker",
+    title: "Expenses Tracker (SplitTrack)",
     label: [
       "Firebase",
       "NextAuth",
@@ -86,9 +87,58 @@ const projects = [
     livePreviewUrl: "https://ethkl.vercel.app/",
     githubRepo: "https://github.com/Aiyern30/ETHKL",
   },
+  {
+    id: 5,
+    title: "Canva Hackathon (Poll Generator)",
+    label: [
+      "React.js, Next.js",
+      "Canva App SDK",
+      "quickChart API",
+      "qrcode API",
+      "Poll API",
+      "Amazon AWS",
+      "Vercel",
+      "Tailwind Css",
+      "TypeScript",
+      "Magic UI",
+      "Shadcn UI",
+      "Material UI",
+    ],
+    description:
+      "Poll Generator is a Canva-integrated platform that simplifies poll and survey creation while providing real-time data visualization. Users can design visually appealing surveys, distribute them via QR codes or a dedicated website, and instantly see response trends. Multiple polls can be included in a single survey for comprehensive data collection.",
+    imageUrl: "/Canva.jpg",
+    livePreviewUrl: "https://devpost.com/software/canva-dx620n",
+
+    githubRepo: "https://github.com/Aiyern30/Canva-Hackathon",
+    // https://github.com/EeJunKhang/Poll-Generator-Canva
+  },
+  {
+    id: 6,
+    title: "Google Cloud Vertex AI Agent Builder Hackathon (PythonGPT)",
+    label: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python",
+      "Flask",
+      "EC2",
+      "Google Cloud SDK",
+      "Google Cloud IAM Service Account",
+      "Vertex AI API",
+      "Gemini-1.0-Pro-Version-001 Model",
+      "bootstrap",
+      "Tailwind CSS",
+    ],
+    description:
+      "PythonGPT is a dynamic website designed to teach beginners how to code in Python. It offers Python documentation, Python code implementation examples, Python exercises, AI Chatbot Assistance",
+    imageUrl: "/PythonAI.jpg",
+    livePreviewUrl: "https://devpost.com/software/pythongpt",
+    githubRepo: "https://github.com/AcruxN/vertex_PythonGPT/",
+  },
 ];
 import { Badge, Button, Skeleton } from "@/components/ui";
 import { cn } from "@/lib/utils";
+// import Project from "./Project";
 
 export default function ProjectsSection() {
   const [selectedImage, setSelectedImage] = useState<{
@@ -99,15 +149,6 @@ export default function ProjectsSection() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const projectsToShow = 3;
-
-  const handleImageClick = (id: string, src: string, alt: string) => {
-    setSelectedImage({ id, src, alt });
-  };
-
-  const handleCloseClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    setSelectedImage(null);
-  };
 
   const nextProjects = () => {
     setCurrentIndex(
@@ -135,6 +176,7 @@ export default function ProjectsSection() {
 
   return (
     <>
+      {/* <Project /> */}
       <section
         className="min-h-screen  text-white container mx-auto space-y-8 select-none mb-20 relative"
         id="projects"
@@ -216,20 +258,14 @@ export default function ProjectsSection() {
               >
                 <motion.div
                   className="w-full h-full flex flex-col items-center justify-center bg-transparent border-0 cursor-pointer"
-                  onClick={() =>
-                    handleImageClick(
-                      `image${project.id}`,
-                      project.imageUrl,
-                      project.title
-                    )
-                  }
                   layoutId={`image${project.id}`}
                 >
                   <Image
                     src={project.imageUrl}
                     alt={`${project.title} Dashboard`}
-                    width={400}
-                    height={300}
+                    width="400"
+                    height="300"
+                    preview
                   />
 
                   {/* Centered buttons */}
@@ -281,35 +317,6 @@ export default function ProjectsSection() {
           ))}
         </div>
       </section>
-
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="bg-white rounded-lg p-4 shadow-lg relative"
-              layoutId={selectedImage.id}
-            >
-              <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                width={1200}
-                height={800}
-              />
-              <button
-                className="px-3 py-1 rounded-full bg-primary text-white absolute top-0 right-0"
-                onClick={handleCloseClick}
-              >
-                X
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
