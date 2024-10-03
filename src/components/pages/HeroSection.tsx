@@ -2,8 +2,11 @@ import Image from "next/image";
 import { BoxReveal } from "@/components/magicui/index";
 import { Avatar } from "antd";
 import { SocialIcon } from "react-social-icons";
+import { useMediaQuery } from "react-responsive";
 
 export default function HeroSection() {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   return (
     <div className="container flex flex-col items-center md:items-start ">
       <div className="flex flex-col md:flex-row items-center md:space-x-5 w-full">
@@ -56,6 +59,72 @@ export default function HeroSection() {
           </div>
         </div>
       </BoxReveal>
+      {isMobile && (
+        <BoxReveal boxColor={"#763CAC"} duration={0.5}>
+          <div className="flex flex-wrap justify-center md:justify-center mx-auto w-full md:w-72 mt-10 space-x-2">
+            <Avatar
+              shape="square"
+              size={48}
+              icon={
+                <SocialIcon
+                  network="linkedin"
+                  url="https://www.linkedin.com/in/ian-gan-346547279/"
+                  target="_blank"
+                />
+              }
+              className="cursor-pointer"
+            />
+            <Avatar
+              shape="square"
+              size={48}
+              icon={
+                <SocialIcon
+                  network="github"
+                  url="https://github.com/Aiyern30"
+                  target="_blank"
+                />
+              }
+              className="cursor-pointer"
+            />
+            <Avatar
+              shape="square"
+              size={48}
+              icon={
+                <SocialIcon
+                  url="https://discord.gg/tAuqPG83"
+                  network="discord"
+                  target="_blank"
+                />
+              }
+              className="cursor-pointer"
+            />
+            <Avatar
+              shape="square"
+              size={48}
+              icon={
+                <SocialIcon
+                  url="https://www.instagram.com/_aiyern_/"
+                  network="instagram"
+                  target="_blank"
+                />
+              }
+              className="cursor-pointer"
+            />
+            <Avatar
+              shape="square"
+              size={48}
+              icon={
+                <SocialIcon
+                  url="https://wa.me/+60182133211?text='Type%20your%20message%20here%20%3A'"
+                  network="whatsapp"
+                  target="_blank"
+                />
+              }
+              className="cursor-pointer"
+            />
+          </div>
+        </BoxReveal>
+      )}
     </div>
   );
 }

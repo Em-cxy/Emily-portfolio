@@ -126,7 +126,7 @@ export default function Home() {
       </section>
       <ScrollTop
         threshold={100}
-        className={cn(" border-round bg-tertiary", isMobile ? "mb-24" : "")}
+        className={cn(" border-round bg-tertiary")}
         icon="pi pi-arrow-up text-base"
       />
 
@@ -137,8 +137,8 @@ export default function Home() {
             icon: item.icon,
             command: () => window.open(item.url, "_blank"),
           }))}
-          position={isMobile ? "bottom" : "right"} // Conditional position based on screen size
-          className={`fixed ${isMobile ? "bottom-0" : "right-0"}`} // Use Tailwind CSS for positioning
+          position="right"
+          className="fixed"
         />
       )}
     </div>
