@@ -247,7 +247,6 @@ export default function ProjectsSection() {
               <motion.div
                 className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <div className="text-lg font-semibold text-tertiary">
@@ -259,26 +258,31 @@ export default function ProjectsSection() {
                   <div className="text-justify">{project.description}</div>
                   <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                     <div className="cursor-pointer space-x-5">
-                      <a
-                        href={project.livePreviewUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline cursor-pointer"
+                      <ConfettiButton
+                        className="hover:underline"
+                        onClick={() =>
+                          window.open(
+                            project.livePreviewUrl,
+                            "_blank",
+                            "noopener noreferrer"
+                          )
+                        }
                       >
-                        <ConfettiButton className="hover:underline">
-                          Live Preview
-                        </ConfettiButton>
-                      </a>
-                      <a
-                        href={project.githubRepo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline cursor-pointer"
+                        Live Preview
+                      </ConfettiButton>
+
+                      <ConfettiButton
+                        className="hover:underline"
+                        onClick={() =>
+                          window.open(
+                            project.githubRepo,
+                            "_blank",
+                            "noopener noreferrer"
+                          )
+                        }
                       >
-                        <ConfettiButton className="hover:underline">
-                          View Code
-                        </ConfettiButton>
-                      </a>
+                        View Code
+                      </ConfettiButton>
                     </div>
                   </div>
                 </div>
