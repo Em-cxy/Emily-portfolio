@@ -79,13 +79,29 @@ const projects = [
   },
   {
     id: 4,
-    title: "Ethereum KL hackathon projects",
-    label: [],
+    title: "Ethereum KL 2024 Hackathon (SassyDispute)",
+    label: [
+      "Solidity",
+      "Hardhat",
+      "OpenZeppelin",
+      "ERC 20",
+      "NextJS",
+      "React",
+      "Framer motion",
+      "Tailwind CSS",
+      "TypeScript",
+      "Shadcn UI",
+      "emailjs",
+      "Lucide-react",
+      "react-cofetti",
+      "Pinata API",
+      "Alchemy Node API",
+    ],
     description:
-      "Description of yet another project with its features and highlights.",
-    imageUrl: "/Weather-Statistics.png",
-    livePreviewUrl: "https://ethkl.vercel.app/",
-    githubRepo: "https://github.com/Aiyern30/ETHKL",
+      "SassyDispute is a platform that allows Web2/Web3 e-commerce websites to share and bridge their dispute cases via IPFS, facilitating decentralized conversations and resolutions. User can comment on dispute cases, search and filter dispute cases and dispute providers can use our ready-bridge smart contract to bridge their Web3 E-commerce platform into SassyDispute",
+    imageUrl: "/ETHKL.png",
+    livePreviewUrl: "https://sassy-dispute.vercel.app/",
+    githubRepo: "https://github.com/FramedStone/SassyDispute",
   },
   {
     id: 5,
@@ -110,7 +126,6 @@ const projects = [
     livePreviewUrl: "https://devpost.com/software/canva-dx620n",
 
     githubRepo: "https://github.com/Aiyern30/Canva-Hackathon",
-    // https://github.com/EeJunKhang/Poll-Generator-Canva
   },
   {
     id: 6,
@@ -135,10 +150,30 @@ const projects = [
     livePreviewUrl: "https://devpost.com/software/pythongpt",
     githubRepo: "https://github.com/AcruxN/vertex_PythonGPT/",
   },
+  {
+    id: 7,
+    title: "Devmatch Hackathon (VoteChain)",
+    label: [
+      "Solidity",
+      "React",
+      "Metamask",
+      "NextJS",
+      "Hardhat",
+      "EmailJS",
+      "Tailwind Css",
+      "TypeScript",
+      "Shadcn UI",
+      "",
+    ],
+    description:
+      "Decentralized voting technology offers significant cost savings by reducing the need for physical polling places, poll workers, and printed materials, allowing citizens to vote remotely from anywhere, even if abroad or in hospitals, thus enhancing democratic participation. Additionally, this system can be applied within organizations, enabling employees to participate in decision-making through voting, which can build reputation reports based on their voting accuracy and activeness. These reports could provide valuable insights for hiring decisions, particularly in roles that require strong decision-making skills, such as HR, recruiting audits, and quantitative analysis.",
+    imageUrl: "/Devmatch.png",
+    livePreviewUrl:
+      "https://devfolio.co/projects/decentralized-voting-system-peyouth-aa44",
+    githubRepo: "https://github.com/Aiyern30/Voting-System-DevMatch-Hackathon-",
+  },
 ];
 import { Badge, Button, Skeleton } from "@/components/ui";
-import { cn } from "@/lib/utils";
-// import Project from "./Project";
 
 export default function ProjectsSection() {
   const [selectedImage, setSelectedImage] = useState<{
@@ -176,7 +211,6 @@ export default function ProjectsSection() {
 
   return (
     <>
-      {/* <Project /> */}
       <section
         className="min-h-screen  text-white container mx-auto space-y-8 select-none mb-20 relative"
         id="projects"
@@ -205,7 +239,6 @@ export default function ProjectsSection() {
             </button>
           </div>
 
-          {/* Render Current Projects */}
           {currentProjects.map((project) => (
             <div
               key={project.id}
@@ -223,7 +256,7 @@ export default function ProjectsSection() {
                 <div className="text-2xl font-bold">{project.title}</div>
 
                 <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
-                  {project.description}
+                  <div className="text-justify">{project.description}</div>
                   <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                     <div className="cursor-pointer space-x-5">
                       <a
@@ -268,7 +301,6 @@ export default function ProjectsSection() {
                     preview
                   />
 
-                  {/* Centered buttons */}
                   <div className="flex flex-wrap gap-2 justify-center mt-2">
                     {project.label.map((label) => (
                       <Badge
