@@ -38,23 +38,18 @@ Deployment: Vercel
 ## About Me
 Hi, I’m Ian! I’m passionate about web development and building useful applications that solve real-world problems. I have experience working with various technologies and programming languages, including:
 - Languages: ### Skills and Proficiency
+### Skills and Proficiency
 
-| Skill           | Proficiency |
-|-----------------|-------------|
-| CSS             | 90%         |
-| HTML            | 90%         |
-| React           | 90%         |
-| JavaScript      | 90%         |
-| Next.js         | 90%         |
-| Tailwind CSS    | 90%         |
-| Python          | 70%         |
-| PHP             | 80%         |
-| Java            | 70%         |
-| MySQL           | 70%         |
-| TypeScript      | 75%         |
-| Node.js         | 70%         |
-| Flutter         | 70%         |
-| R Language      | 70%         |
-| LabVIEW         | 70%         |
-| C++             | 70%         |
-| App Script      | 70%         |
+| Skill            | Proficiency | Skill           | Proficiency |
+|-------------------|-------------|------------------|-------------|
+| CSS              | 90%         | TypeScript      | 75%         |
+| HTML             | 90%         | Node.js         | 70%         |
+| React            | 90%         | Flutter         | 70%         |
+| JavaScript       | 90%         | R Language      | 70%         |
+| Next.js          | 90%         | LabVIEW         | 70%         |
+| Tailwind CSS     | 90%         | C++             | 70%         |
+| Python           | 70%         | App Script      | -           |
+| PHP              | 80%         |                 |             |
+| Java             | 70%         |                 |             |
+| MySQL            | 70%         |                 |             |
+
