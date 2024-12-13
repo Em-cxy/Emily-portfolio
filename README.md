@@ -9,7 +9,6 @@ In addition to my work, you’ll also find ways to connect with me through my so
 - [Usage](#usage)
 - [Content](#content)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -37,7 +36,7 @@ Deployment: Vercel
 
 ## About Me
 Hi, I’m Ian! I’m passionate about web development and building useful applications that solve real-world problems. I have experience working with various technologies and programming languages, including:
-- Languages: ### Skills and Proficiency
+
 ### Skills and Proficiency
 
 | Skill            | Proficiency | Skill           | Proficiency |
@@ -53,3 +52,10 @@ Hi, I’m Ian! I’m passionate about web development and building useful applic
 | Java             | 70%         |                 |             |
 | MySQL            | 70%         |                 |             |
 
+## Contributing
+If you'd like to contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Open a pull request.
