@@ -36,25 +36,42 @@ const projects = [
     livePreviewUrl: "https://spot-wave.vercel.app/",
     githubRepo: "https://github.com/Aiyern30/SpotWave",
   },
+  // {
+  //   id: 2,
+  //   title: "Expenses Tracker (SplitTrack)",
+  //   label: [
+  //     "Firebase",
+  //     "NextAuth",
+  //     "NextJS",
+  //     "Tailwind CSS",
+  //     "React",
+  //     "Vercel",
+  //     "TypeScript",
+  //     "Shadcn UI",
+  //     "Lucide react",
+  //   ],
+  //   description:
+  //     "The Expenses Tracker is a robust application designed to help users efficiently manage their finances. Track your expenses daily, monthly, and yearly, and gain detailed insights into your spending habits. Key features include expense tracking, managing friend expenses, and effective group expense management during trips.",
+  //   imageUrl: "/Split-Track.png",
+  //   livePreviewUrl: "https://split-track.vercel.app/",
+  //   githubRepo: "https://github.com/Aiyern30/SplitTrack",
+  // },
   {
     id: 2,
-    title: "Expenses Tracker (SplitTrack)",
+    title: "Pet Care",
     label: [
-      "Firebase",
-      "NextAuth",
-      "NextJS",
-      "Tailwind CSS",
-      "React",
-      "Vercel",
-      "TypeScript",
-      "Shadcn UI",
-      "Lucide react",
+      "HTML",
+      "CSS",
+      "JavaScripts",
+      "PHP",
+      "MySQL",
+      "MyPhpAdmin",
+      "ChartJS",
     ],
     description:
-      "The Expenses Tracker is a robust application designed to help users efficiently manage their finances. Track your expenses daily, monthly, and yearly, and gain detailed insights into your spending habits. Key features include expense tracking, managing friend expenses, and effective group expense management during trips.",
-    imageUrl: "/Split-Track.png",
-    livePreviewUrl: "https://split-track.vercel.app/",
-    githubRepo: "https://github.com/Aiyern30/SplitTrack",
+      "This website provides a comprehensive platform for pet care services. Customers can easily book appointments for their pets, including surgeries and other medical needs. The platform also features a community blog where users can chat, share posts, and read knowledge articles about pet care. For business owners and staff, the website offers robust tools to manage operations effectively, including full CRUD functionality for managing appointments, customer data, and services. Additionally, it includes features to view receipts and generate detailed payment reports with visually appealing charts, streamlining administrative tasks.",
+    // imageUrl: "/Split-Track.png",
+    githubRepo: "https://github.com/Aiyern30/Pet-Care",
   },
   {
     id: 3,
@@ -261,40 +278,51 @@ export default function ProjectsSection() {
                 className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 m-4"
               >
                 <motion.div
-  className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
-  whileHover={{ scale: 1.1 }}
-  transition={{ type: "spring", stiffness: 400, damping: 17 }}
->
-  <div className="text-lg font-semibold text-tertiary">
-    Featured project {project.id}
-  </div>
-  <div className="text-2xl font-bold">{project.title}</div>
+                  className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <div className="text-lg font-semibold text-tertiary">
+                    Featured project {project.id}
+                  </div>
+                  <div className="text-2xl font-bold">{project.title}</div>
 
-  <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
-    <div className="text-justify">{project.description}</div>
+                  <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
+                    <div className="text-justify">{project.description}</div>
 
-    {/* Update button layout to stack in a single column on small screens */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
-      <ConfettiButton
-        className="hover:underline w-full"
-        onClick={() =>
-          window.open(project.livePreviewUrl, "_blank", "noopener noreferrer")
-        }
-      >
-        Live Preview
-      </ConfettiButton>
-
-      <ConfettiButton
-        className="hover:underline w-full"
-        onClick={() =>
-          window.open(project.githubRepo, "_blank", "noopener noreferrer")
-        }
-      >
-        View Code
-      </ConfettiButton>
-    </div>
-  </div>
-</motion.div>
+                    {/* Update button layout to stack in a single column on small screens */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
+                      {project.livePreviewUrl && (
+                        <ConfettiButton
+                          className="hover:underline w-full"
+                          onClick={() =>
+                            window.open(
+                              project.livePreviewUrl,
+                              "_blank",
+                              "noopener noreferrer"
+                            )
+                          }
+                        >
+                          Live Preview
+                        </ConfettiButton>
+                      )}
+                      {project.githubRepo && (
+                        <ConfettiButton
+                          className="hover:underline w-full"
+                          onClick={() =>
+                            window.open(
+                              project.githubRepo,
+                              "_blank",
+                              "noopener noreferrer"
+                            )
+                          }
+                        >
+                          View Code
+                        </ConfettiButton>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
 
                 <motion.div
                   className="w-full md:w-1/2 flex items-center justify-center flex-1"
