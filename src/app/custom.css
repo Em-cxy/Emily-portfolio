@@ -1,0 +1,36 @@
+.p-image-toolbar {
+  color: white;
+}
+
+.p-image-toolbar .p-image-action {
+  transition: transform 0.3s ease;
+}
+
+.p-image-toolbar .p-image-action:hover {
+  transform: scale(1.4);
+}
+
+.social-icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1) rotate(20deg);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.social-svg-icon {
+  transition: fill 0.3s ease;
+}
+
+.social-icon:hover .social-svg-icon {
+  fill: #ff5722;
+}

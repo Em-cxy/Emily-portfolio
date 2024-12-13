@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./custom.css";
 import { PrimeReactProvider } from "primereact/api";
 import { Toaster } from "@/components/ui";
 
