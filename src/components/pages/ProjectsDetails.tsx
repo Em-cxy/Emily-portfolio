@@ -266,7 +266,7 @@ export default function ProjectsSection() {
   return (
     <>
       <section
-        className="min-h-screen  text-white container mx-auto space-y-8 select-none mb-20 relative"
+        className="  text-white container mx-auto space-y-8 select-none mb-20 relative"
         id="projects"
       >
         <button

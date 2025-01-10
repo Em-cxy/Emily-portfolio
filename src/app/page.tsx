@@ -85,7 +85,7 @@ export default function Home() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
-    <div>
+    <div className="content">
       <Header activeSection={activeSection} />
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <Meteors number={100} />
@@ -95,33 +95,27 @@ export default function Home() {
         style={{ scaleX: scrollYProgress }}
       />
       <section
-        className="min-h-screen flex flex-col items-center justify-center px-4 mt-36 sm:mt-24"
+        className=" flex flex-col items-center justify-center px-4 mt-36 sm:mt-24"
         id="home"
       >
         <HeroSection />
       </section>
 
-      <section
-        className="min-h-screen flex items-center justify-center"
-        id="tools"
-      >
+      <section className=" flex items-center justify-center" id="tools">
         <GlobalSection />
       </section>
 
       <ProjectsSection />
       <section
-        className="min-h-screen flex flex-col items-center justify-center px-4"
+        className=" flex flex-col items-center justify-center px-4"
         id="certs"
       >
         <Certificate />
       </section>
-      <section className="min-h-screen px-4 " id="about">
+      <section className=" px-4 " id="about">
         <SkillsDetails />
       </section>
-      <section
-        className="min-h-screen flex items-center justify-center"
-        id="contact-us"
-      >
+      <section className=" flex items-center justify-center" id="contact-us">
         <ContactForm />
       </section>
       <ScrollTop
