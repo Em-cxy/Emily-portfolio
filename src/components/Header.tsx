@@ -16,8 +16,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-secondary font-primary text-white p-5 text-xl z-50">
-      <div className="flex justify-between items-center">
+    <div className=" fixed top-0 left-0 right-0 bg-secondary font-primary text-white p-5 text-xl z-50">
+      <div className=" flex justify-between items-center">
         <Link href="/" className="text-[20px] lg:text-[32px] font-semibold">
           <div>Ian's Portfolio</div>
         </Link>
