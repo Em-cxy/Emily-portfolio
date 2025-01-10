@@ -6,15 +6,6 @@ import { Image } from "primereact/image";
 import { useEffect, useState } from "react";
 import { ConfettiButton } from "../magicui/Confetti";
 const projects = [
-  // {
-  //   ,
-  //   title: "Weather Forecast Application",
-  //   description:
-  //     "Our Weather Forecast Application provides users with comprehensive weather information, customizable appearance settings, and forecasts extending up to 3 days.",
-  //   imageUrl: "/Weather-Dashboard.png",
-  //   livePreviewUrl: "https://ian-weather-application.vercel.app",
-  //   githubRepo: "https://github.com/Aiyern30/Weather-Application",
-  // },
   {
     title: "Music Application with Spotify (SpotWave)",
     label: [
@@ -55,6 +46,24 @@ const projects = [
       "Recently, I joined the YTL Cement IT department, focusing on developing an e-invoice system. The system manages driver e-invoices and supports role-based access for submitting documents to LHDN. I worked on key features such as income and expenses tracking, statement of accounts, and invoice reporting using Microsoft Power BI and Report Builder.",
     imageUrl: "/Dos-portal.png",
     livePreviewUrl: null,
+    githubRepo: null,
+  },
+
+  {
+    title: "Sino Mobile and Heavy Equipment (SMHE)",
+    label: [
+      "NextJS",
+      "Tailwind CSS",
+      "React",
+      "TypeScript",
+      "Google Maps API",
+      "Framer Motion",
+      "Strapi",
+    ],
+    description:
+      "Developed the landing page for the Sino Mobile and Heavy Equipment (SMHE) website, focusing on showcasing trucks for sale. Key features include a Media Center, About Us section, detailed truck pages with overview and specifications, and options for users to contact sales or download brochures. Integrated Google Maps to display workshop and factory locations for easy navigation.",
+    imageUrl: "/SMHE.png",
+    livePreviewUrl: "https://smhe.uat4ytlcement.com/",
     githubRepo: null,
   },
 
