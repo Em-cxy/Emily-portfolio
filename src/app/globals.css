@@ -68,3 +68,8 @@
     /* cursor: none; */
   }
 }
+
+.content {
+  @apply max-w-[1480px] mx-auto
+  pt-10 pb-5 px-5 sm:p-10;
+}
