@@ -1,4 +1,6 @@
 "use client";
+import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Image } from "primereact/image";
@@ -269,18 +271,14 @@ export default function ProjectsSection() {
         className="  text-white container mx-auto space-y-8 select-none mb-20 relative"
         id="projects"
       >
-        <button
+        <FaChevronLeft
           onClick={prevProjects}
-          className="mx-4 w-32 h-12 rounded-xl text-black bg-white hover:opacity-80 absolute top-1/2 left-0"
-        >
-          Previous
-        </button>
-        <button
+          className="w-32 h-12  absolute top-1/2 left-0 cursor-pointer"
+        />
+        <FaChevronRight
           onClick={nextProjects}
-          className="mx-4 w-32 h-12 rounded-xl text-black bg-white hover:opacity-80 absolute top-1/2 right-0"
-        >
-          Next
-        </button>
+          className="w-32 h-12  absolute top-1/2 right-0 cursor-pointer"
+        />
         <div className="text-5xl text-center relative mb-8">
           <div className="font-primary">Recent Projects</div>
           <div className="h-1 w-64 bg-white mx-auto text-center mt-4"></div>
@@ -289,28 +287,9 @@ export default function ProjectsSection() {
           <MarqueCard data={projects} />
         ) : (
           <div className="flex flex-col items-center justify-center">
-            {/* <div
-              className={`flex justify-center items-center w-full md:w-3/4 mx-auto mt-4 text-black h-16 ${
-                projects.length <= 3 ? "hidden" : ""
-              }`}
-            >
-              <button
-                onClick={prevProjects}
-                className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
-              >
-                Previous
-              </button>
-              <button
-                onClick={nextProjects}
-                className="mx-4 w-32 h-12 rounded-xl bg-white hover:opacity-80"
-              >
-                Next
-              </button>
-            </div> */}
-
-            {currentProjects.map((project, index) => (
+            {currentProjects.map((project, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 m-4"
               >
                 <motion.div
@@ -318,15 +297,15 @@ export default function ProjectsSection() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
+                  {/* Adjusted index to reflect page-relative numbering */}
                   <div className="text-lg font-semibold text-tertiary">
-                    Featured project {index + 1}
+                    Featured project {startIndex + idx + 1}
                   </div>
                   <div className="text-2xl font-bold">{project.title}</div>
 
-                  <div className="bg-secondary opacity-80 p-4 rounded-xl flex-1">
+                  <div className="bg-secondary opacity-80 p-4 flex-1">
                     <div className="text-justify">{project.description}</div>
 
-                    {/* Update button layout to stack in a single column on small screens */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
                       {project.livePreviewUrl && (
                         <ConfettiButton
@@ -368,7 +347,7 @@ export default function ProjectsSection() {
                 >
                   <motion.div
                     className="w-full h-64 flex flex-col items-center justify-center bg-transparent border-0 cursor-pointer"
-                    layoutId={`image${index}`}
+                    layoutId={`image${idx}`}
                   >
                     <Image
                       src={project.imageUrl}
@@ -395,6 +374,7 @@ export default function ProjectsSection() {
                 </motion.div>
               </div>
             ))}
+
             {[...Array(skeletonsToShow)].map((_, index) => (
               <div
                 key={`skeleton-${index}`}
@@ -407,7 +387,7 @@ export default function ProjectsSection() {
                 >
                   <Skeleton className="h-6 w-40" />
                   <Skeleton className="h-8 w-64" />
-                  <div className="bg-purple-800 opacity-60 p-4 rounded-xl flex-1 ">
+                  <div className="bg-purple-800 opacity-60 p-4 flex-1 ">
                     <Skeleton className="h-32 w-full" />
                     <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
                       <div className="space-x-5">
