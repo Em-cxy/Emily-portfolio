@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { ConfettiButton } from "../magicui/Confetti";
 const projects = [
   // {
-  //   id: 1,
+  //   ,
   //   title: "Weather Forecast Application",
   //   description:
   //     "Our Weather Forecast Application provides users with comprehensive weather information, customizable appearance settings, and forecasts extending up to 3 days.",
@@ -16,7 +16,6 @@ const projects = [
   //   githubRepo: "https://github.com/Aiyern30/Weather-Application",
   // },
   {
-    id: 1,
     title: "Music Application with Spotify (SpotWave)",
     label: [
       "Spotify",
@@ -36,8 +35,30 @@ const projects = [
     livePreviewUrl: "https://spot-wave.vercel.app/",
     githubRepo: "https://github.com/Aiyern30/SpotWave",
   },
+  {
+    title: "YTL Cement IT Department",
+    label: [
+      "Power BI",
+      "Microsoft Report Builder",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "NextJS",
+      "PrimeReact",
+      "SCSS",
+      "apollo client",
+      "graphql",
+      "pino",
+      "pupeeter",
+    ],
+    description:
+      "Recently, I joined the YTL Cement IT department, focusing on developing an e-invoice system. The system manages driver e-invoices and supports role-based access for submitting documents to LHDN. I worked on key features such as income and expenses tracking, statement of accounts, and invoice reporting using Microsoft Power BI and Report Builder.",
+    imageUrl: "/Dos-portal.png",
+    livePreviewUrl: null,
+    githubRepo: null,
+  },
+
   // {
-  //   id: 2,
   //   title: "Expenses Tracker (SplitTrack)",
   //   label: [
   //     "Firebase",
@@ -57,7 +78,6 @@ const projects = [
   //   githubRepo: "https://github.com/Aiyern30/SplitTrack",
   // },
   {
-    id: 2,
     title: "Pet Care",
     label: [
       "HTML",
@@ -74,7 +94,6 @@ const projects = [
     githubRepo: "https://github.com/Aiyern30/Pet-Care",
   },
   {
-    id: 3,
     title: "Reka Konsult Company Profile",
     label: [
       "NextJS",
@@ -95,7 +114,6 @@ const projects = [
     githubRepo: "https://github.com/Aiyern30/reka-konsult",
   },
   {
-    id: 4,
     title: "Ethereum KL 2024 Hackathon (SassyDispute)",
     label: [
       "Solidity",
@@ -121,7 +139,6 @@ const projects = [
     githubRepo: "https://github.com/FramedStone/SassyDispute",
   },
   {
-    id: 5,
     title: "Canva Hackathon (Poll Generator)",
     label: [
       "React, NextJS",
@@ -145,7 +162,6 @@ const projects = [
     githubRepo: "https://github.com/Aiyern30/Canva-Hackathon",
   },
   {
-    id: 6,
     title: "Google Cloud Vertex AI Agent Builder Hackathon (PythonGPT)",
     label: [
       "HTML",
@@ -168,7 +184,6 @@ const projects = [
     githubRepo: "https://github.com/AcruxN/vertex_PythonGPT/",
   },
   {
-    id: 7,
     title: "Devmatch Hackathon (VoteChain)",
     label: [
       "Solidity",
@@ -272,9 +287,9 @@ export default function ProjectsSection() {
               </button>
             </div>
 
-            {currentProjects.map((project) => (
+            {currentProjects.map((project, index) => (
               <div
-                key={project.id}
+                key={index}
                 className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 m-4"
               >
                 <motion.div
@@ -283,7 +298,7 @@ export default function ProjectsSection() {
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <div className="text-lg font-semibold text-tertiary">
-                    Featured project {project.id}
+                    Featured project {index + 1}
                   </div>
                   <div className="text-2xl font-bold">{project.title}</div>
 
@@ -332,7 +347,7 @@ export default function ProjectsSection() {
                 >
                   <motion.div
                     className="w-full h-64 flex flex-col items-center justify-center bg-transparent border-0 cursor-pointer"
-                    layoutId={`image${project.id}`}
+                    layoutId={`image${index}`}
                   >
                     <Image
                       src={project.imageUrl}
