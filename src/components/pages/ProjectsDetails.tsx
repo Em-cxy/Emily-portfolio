@@ -269,6 +269,18 @@ export default function ProjectsSection() {
         className="min-h-screen  text-white container mx-auto space-y-8 select-none mb-20 relative"
         id="projects"
       >
+        <button
+          onClick={prevProjects}
+          className="mx-4 w-32 h-12 rounded-xl text-black bg-white hover:opacity-80 absolute top-1/2 left-0"
+        >
+          Previous
+        </button>
+        <button
+          onClick={nextProjects}
+          className="mx-4 w-32 h-12 rounded-xl text-black bg-white hover:opacity-80 absolute top-1/2 right-0"
+        >
+          Next
+        </button>
         <div className="text-5xl text-center relative mb-8">
           <div className="font-primary">Recent Projects</div>
           <div className="h-1 w-64 bg-white mx-auto text-center mt-4"></div>
@@ -277,7 +289,7 @@ export default function ProjectsSection() {
           <MarqueCard data={projects} />
         ) : (
           <div className="flex flex-col items-center justify-center">
-            <div
+            {/* <div
               className={`flex justify-center items-center w-full md:w-3/4 mx-auto mt-4 text-black h-16 ${
                 projects.length <= 3 ? "hidden" : ""
               }`}
@@ -294,7 +306,7 @@ export default function ProjectsSection() {
               >
                 Next
               </button>
-            </div>
+            </div> */}
 
             {currentProjects.map((project, index) => (
               <div
