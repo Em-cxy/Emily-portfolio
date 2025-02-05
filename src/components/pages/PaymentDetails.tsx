@@ -19,10 +19,22 @@ const paymentMethods = [
     link: 'https://buy.stripe.com/test_7sIg2FeFCfvu2FW144'
   },
   {
+    name: 'Kofi',
+    logo: '/Logo/kofi_logo.svg',
+    link: ' https://ko-fi.com/iangan'
+  },
+ 
+  {
     name: "Touch 'n Go eWallet",
     logo: '/Logo/TNG.jpg', 
     link: 'https://payment.tngdigital.com.my/sc/bDLnPgpH5S'
+  },
+  {
+    name: 'Maybank QRPay',
+    logo: '/Logo/mae.png',
+    link: '/Logo/MaeQR.jpg' 
   }
+  
 ];
 
 const PaymentDetails = () => {
