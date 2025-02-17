@@ -73,25 +73,6 @@ const projects = [
     githubRepo: null,
   },
 
-  {
-    title: "Expenses Tracker (SplitTrack)",
-    label: [
-      "Firebase",
-      "NextAuth",
-      "NextJS",
-      "Tailwind CSS",
-      "React",
-      "Vercel",
-      "TypeScript",
-      "Shadcn UI",
-      "Lucide react",
-    ],
-    description:
-      "The Expenses Tracker is a robust application designed to help users efficiently manage their finances. Track your expenses daily, monthly, and yearly, and gain detailed insights into your spending habits. Key features include expense tracking, managing friend expenses, and effective group expense management during trips.",
-    imageUrl: "/Split-Track.png",
-    livePreviewUrl: "https://split-track.vercel.app/",
-    githubRepo: "https://github.com/Aiyern30/SplitTrack",
-  },
   // {
   //   title: "Pet Care",
   //   label: [
@@ -128,6 +109,44 @@ const projects = [
     imageUrl: "/Reka-Konsult.png",
     livePreviewUrl: "https://reka-konsult.vercel.app/",
     githubRepo: "https://github.com/Aiyern30/reka-konsult",
+  },
+  {
+    title: "LiveSportsNow",
+    label: [
+      "NextAuth",
+      "NextJS",
+      "Tailwind CSS",
+      "React",
+      "Vercel",
+      "TypeScript",
+      "Shadcn UI",
+      "Lucide react",
+      "Football API",
+    ],
+    description:
+      "LiveSportsNow is a comprehensive sports platform that allows users to view real-time scores, standings, team details, and stats across multiple sports, including NBA, NFL, Soccer, and more. Designed to offer an experience similar to ESPN, the app provides up-to-date sports coverage, helping fans stay informed with the latest game results, league rankings, and team performances.",
+    imageUrl: "/LiveSportsNow.png",
+    livePreviewUrl: "https://livesportsnow.vercel.app/NBA",
+    githubRepo: "https://github.com/Aiyern30/LiveSportsNow.git",
+  },
+  {
+    title: "Expenses Tracker (SplitTrack)",
+    label: [
+      "Firebase",
+      "NextAuth",
+      "NextJS",
+      "Tailwind CSS",
+      "React",
+      "Vercel",
+      "TypeScript",
+      "Shadcn UI",
+      "Lucide react",
+    ],
+    description:
+      "The Expenses Tracker is a robust application designed to help users efficiently manage their finances. Track your expenses daily, monthly, and yearly, and gain detailed insights into your spending habits. Key features include expense tracking, managing friend expenses, and effective group expense management during trips.",
+    imageUrl: "/Split-Track.png",
+    livePreviewUrl: "https://split-track.vercel.app/",
+    githubRepo: "https://github.com/Aiyern30/SplitTrack",
   },
   {
     title: "Ethereum KL 2024 Hackathon (SassyDispute)",

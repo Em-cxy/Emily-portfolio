@@ -66,6 +66,8 @@ const slugs = [
   "ethereum",
   "ethers",
   "solana",
+  "matlab",
+  "rust",
 ];
 
 export default function GlobalSection() {
