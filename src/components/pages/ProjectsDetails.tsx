@@ -1,10 +1,11 @@
 "use client";
+import { Github, ExternalLink } from "lucide-react";
+
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Image } from "primereact/image";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ConfettiButton } from "../magicui/Confetti";
 const projects = [
@@ -239,184 +240,116 @@ const projects = [
     githubRepo: "https://github.com/Aiyern30/Voting-System-DevMatch-Hackathon-",
   },
 ];
-import { Badge, Skeleton } from "@/components/ui";
+import { Badge, Button, Skeleton } from "@/components/ui";
 import { MarqueCard } from "./MarqueCard";
 import { useDeviceType } from "@/lib/useDeviceTypes";
 
 export default function ProjectsSection() {
   const { isMobile } = useDeviceType();
-
-  const icon = <i className="pi pi-search"></i>;
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const projectsToShow = isMobile ? 1 : 3;
-
-  const nextProjects = () => {
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex + 1) % Math.ceil(projects.length / projectsToShow)
-    );
-  };
-
-  const prevProjects = () => {
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + Math.ceil(projects.length / projectsToShow)) %
-        Math.ceil(projects.length / projectsToShow)
-    );
-  };
-
-  const startIndex = currentIndex * projectsToShow;
-  const currentProjects = projects.slice(
-    startIndex,
-    startIndex + projectsToShow
-  );
-
-  const totalItemsToShow = projectsToShow;
-  const skeletonsToShow = totalItemsToShow - currentProjects.length;
+  const [showAll, setShowAll] = useState(false);
+  const displayedProjects = showAll ? projects : projects.slice(0, 6);
 
   return (
     <>
-      <section
-        className="  text-white container mx-auto select-none mb-20 relative"
-        id="projects"
-      >
-        <FaChevronLeft
-          onClick={prevProjects}
-          className="w-32 h-12  absolute top-1/2 -left-10 sm:left-0 cursor-pointer"
-        />
-        <FaChevronRight
-          onClick={nextProjects}
-          className="w-32 h-12  absolute top-1/2 -right-10 sm:right-0 cursor-pointer"
-        />
-        <div className="text-5xl text-center relative mb-8">
-          <div className="font-primary">Recent Projects</div>
-          <div className="h-1 w-64 bg-white mx-auto text-center mt-4"></div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          {currentProjects.map((project, idx) => (
-            <div
-              key={idx}
-              className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 m-4"
-            >
-              <motion.div
-                className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      <section className="py-24 px-4 md:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">My Recent Work</h2>
+            <p className="text-muted-foreground">
+              Here are a few past design projects I&apos;ve worked on. Want to
+              see more?{" "}
+              <a
+                href="mailto:your@email.com"
+                className="text-primary hover:underline"
               >
-                <div className="text-lg font-semibold text-tertiary text-center sm:text-left">
-                  Featured project {startIndex + idx + 1}
-                </div>
-                <div className="text-2xl font-bold text-center sm:text-left">
-                  {project.title}
-                </div>
+                Email me
+              </a>
+              .
+            </p>
+          </div>
 
-                <div className="bg-secondary opacity-80 p-4 flex-1">
-                  <div className="sm:text-justify text-sm sm:text-base">
-                    {project.description}
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
-                    {project.livePreviewUrl && (
-                      <ConfettiButton
-                        className="hover:underline w-full"
-                        onClick={() =>
-                          window.open(
-                            project.livePreviewUrl,
-                            "_blank",
-                            "noopener noreferrer"
-                          )
-                        }
-                      >
-                        Live Preview
-                      </ConfettiButton>
-                    )}
-                    {project.githubRepo && (
-                      <ConfettiButton
-                        className="hover:underline w-full"
-                        onClick={() =>
-                          window.open(
-                            project.githubRepo,
-                            "_blank",
-                            "noopener noreferrer"
-                          )
-                        }
-                      >
-                        View Code
-                      </ConfettiButton>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {displayedProjects.map((project, index) => (
               <motion.div
-                className="w-full md:w-1/2 flex items-center justify-center flex-1"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                key={index}
+                className="group relative rounded-lg bg-card"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.2 }}
               >
-                <motion.div
-                  className="w-full h-64 flex flex-col items-center justify-center bg-transparent border-0 cursor-pointer"
-                  layoutId={`image${idx}`}
-                >
+                <div className="aspect-[16/9] relative">
                   <Image
-                    src={project.imageUrl}
-                    alt={`${project.title} Dashboard`}
-                    width="400"
-                    height="300"
-                    indicatorIcon={icon}
-                    preview
-                    className="bg-gray-400"
+                    src={project.imageUrl || "/placeholder.svg"}
+                    alt={project.title}
+                    className="rounded-lg object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index < 6}
+                    fill
                   />
-
-                  <div className="flex flex-wrap gap-2 justify-center mt-2">
-                    {project.label.map((label) => (
-                      <Badge
-                        key={label}
-                        variant="secondary"
-                        className="text-xs"
-                      >
-                        {label}
-                      </Badge>
-                    ))}
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
-          ))}
-
-          {[...Array(skeletonsToShow)].map((_, index) => (
-            <div
-              key={`skeleton-${index}`}
-              className="w-full md:w-3/4 flex flex-col md:flex-row items-stretch space-y-6 md:space-y-0 m-4"
-            >
-              <motion.div
-                className="w-full md:w-1/2 flex flex-col space-y-3 px-4 md:px-8 flex-1"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <Skeleton className="h-6 w-40" />
-                <Skeleton className="h-8 w-64" />
-                <div className="bg-purple-800 opacity-60 p-4 flex-1 ">
-                  <Skeleton className="h-32 w-full" />
-                  <div className="flex md:flex-row justify-start space-x-0 md:space-x-5 space-y-2 md:space-y-0 my-3">
-                    <div className="space-x-5">
-                      <Skeleton className="h-8 w-24 inline-block" />
-                      <Skeleton className="h-8 w-24 inline-block" />
+                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg">
+                    <div className="p-6 h-full flex flex-col justify-between text-white">
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-gray-200 mb-4 line-clamp-3">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.label.slice(0, 3).map((tech, i) => (
+                            <Badge
+                              key={i}
+                              variant="secondary"
+                              className="text-xs"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        {project.githubRepo && (
+                          <Button
+                            variant="secondary"
+                            size="sm"
+                            onClick={() =>
+                              window.open(project.githubRepo, "_blank")
+                            }
+                          >
+                            <Github className="w-4 h-4 mr-2" />
+                            GitHub
+                          </Button>
+                        )}
+                        {project.livePreviewUrl && (
+                          <Button
+                            variant="secondary"
+                            size="sm"
+                            onClick={() =>
+                              window.open(project.livePreviewUrl, "_blank")
+                            }
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Preview
+                          </Button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
               </motion.div>
-              <motion.div
-                className="w-full md:w-1/2 flex items-center justify-center flex-1"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            ))}
+          </div>
+
+          {!showAll && projects.length > 6 && (
+            <div className="text-center mt-12">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => setShowAll(true)}
               >
-                <Skeleton className="w-[400px] h-[200px]" />
-              </motion.div>
+                See more
+              </Button>
             </div>
-          ))}
+          )}
         </div>
       </section>
     </>
