@@ -252,7 +252,7 @@ export default function ProjectsSection() {
   const displayedProjects = showAll ? projects : projects.slice(0, 4);
   return (
     <>
-      <section className="py-24 px-4 md:px-6">
+      <section className="py-24 px-4 md:px-6 text-white" id="projects">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">My Recent Work</h2>
@@ -260,7 +260,7 @@ export default function ProjectsSection() {
               Here are a few past design projects I&apos;ve worked on. Want to
               see more?{" "}
               <a
-                href="mailto:your@email.com"
+                href="mailto:ianbian2@gmail.com"
                 className="text-primary hover:underline"
               >
                 Email me
