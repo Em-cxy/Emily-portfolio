@@ -319,15 +319,17 @@ export default function ProjectsSection() {
 
                           {/* Tech Labels */}
                           <div className="flex flex-wrap gap-2 mb-4">
-                            {project.label.map((tech, i) => (
-                              <Badge
-                                key={i}
-                                variant="secondary"
-                                className="text-xs"
-                              >
-                                {tech}
-                              </Badge>
-                            ))}
+                            {project.label
+                              .slice(0, isMobile ? 5 : project.label.length) // Show only 5 if isMobile is true
+                              .map((tech, i) => (
+                                <Badge
+                                  key={i}
+                                  variant="secondary"
+                                  className="text-xs"
+                                >
+                                  {tech}
+                                </Badge>
+                              ))}
                           </div>
                         </div>
 
