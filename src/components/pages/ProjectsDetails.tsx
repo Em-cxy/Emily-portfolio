@@ -246,9 +246,10 @@ import { useDeviceType } from "@/lib/useDeviceTypes";
 
 export default function ProjectsSection() {
   const { isMobile } = useDeviceType();
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
+  const displayedProjects = showAll ? projects : projects.slice(0, 4);
   return (
     <>
       <section className="py-24 px-4 md:px-6">
@@ -270,75 +271,101 @@ export default function ProjectsSection() {
 
           {/* Project Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {displayedProjects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="group relative rounded-lg bg-card shadow-lg overflow-hidden"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.2 }}
-              >
-                {/* Image Container */}
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                  <Image
-                    src={project.imageUrl || "/placeholder.svg"}
-                    alt={project.title}
-                    width={300}
-                    height={300}
-                    className="rounded-lg object-cover w-full h-full"
-                    priority={index < 4}
-                  />
-                </div>
+            {displayedProjects.map((project, index) => {
+              const isActive = selectedProject === index;
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-between p-6 text-white">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-gray-200 mb-4 line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* Tech Labels */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.label.slice(0, 5).map((tech, i) => (
-                        <Badge key={i} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
+              return (
+                <motion.div
+                  key={index}
+                  className="group relative rounded-lg bg-card shadow-lg overflow-hidden"
+                  whileHover={!isMobile ? { y: -5 } : undefined}
+                  transition={{ duration: 0.2 }}
+                  onClick={() =>
+                    isMobile && setSelectedProject(isActive ? null : index)
+                  }
+                >
+                  {/* Image Container */}
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                    <Image
+                      src={project.imageUrl || "/placeholder.svg"}
+                      alt={project.title}
+                      width={300}
+                      height={300}
+                      className="rounded-lg object-cover w-full h-full"
+                      priority={index < 4}
+                    />
                   </div>
 
-                  {/* Buttons */}
-                  <div className="flex gap-3">
-                    {project.githubRepo && (
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        onClick={() =>
-                          window.open(project.githubRepo, "_blank")
-                        }
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        GitHub
-                      </Button>
-                    )}
-                    {project.livePreviewUrl && (
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        onClick={() =>
-                          window.open(project.livePreviewUrl, "_blank")
-                        }
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Preview
-                      </Button>
-                    )}
+                  {/* Hover Overlay (For Desktop) | Click to Expand (For Mobile) */}
+                  <div
+                    className={`absolute inset-0 bg-black/80 transition-all duration-300 flex flex-col justify-between p-6 text-white 
+                  ${
+                    isMobile
+                      ? isActive
+                        ? "opacity-100"
+                        : "opacity-0 h-0"
+                      : "opacity-0 group-hover:opacity-100"
+                  }`}
+                  >
+                    {isActive || !isMobile ? (
+                      <>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2">
+                            {project.title}
+                          </h3>
+                          <p className="text-sm text-gray-200 mb-4 line-clamp-3">
+                            {project.description}
+                          </p>
+
+                          {/* Tech Labels */}
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {project.label.map((tech, i) => (
+                              <Badge
+                                key={i}
+                                variant="secondary"
+                                className="text-xs"
+                              >
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Buttons */}
+                        <div className="flex gap-3">
+                          {project.githubRepo && (
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                window.open(project.githubRepo, "_blank");
+                              }}
+                            >
+                              <Github className="w-4 h-4 mr-2" />
+                              GitHub
+                            </Button>
+                          )}
+                          {project.livePreviewUrl && (
+                            <Button
+                              variant="secondary"
+                              size="sm"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                window.open(project.livePreviewUrl, "_blank");
+                              }}
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Preview
+                            </Button>
+                          )}
+                        </div>
+                      </>
+                    ) : null}
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Show More / Show Less Button */}
