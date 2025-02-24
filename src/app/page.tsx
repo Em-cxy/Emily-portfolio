@@ -160,7 +160,7 @@ export default function Home() {
           className="fixed"
         />
       )}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <FloatingIcon count={3} />
       </div>
     </div>
