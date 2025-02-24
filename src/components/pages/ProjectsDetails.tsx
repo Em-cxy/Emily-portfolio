@@ -247,12 +247,12 @@ import { useDeviceType } from "@/lib/useDeviceTypes";
 export default function ProjectsSection() {
   const { isMobile } = useDeviceType();
   const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? projects : projects.slice(0, 6);
+  const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
   return (
     <>
       <section className="py-24 px-4 md:px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">My Recent Work</h2>
             <p className="text-muted-foreground">
@@ -268,85 +268,88 @@ export default function ProjectsSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {displayedProjects.map((project, index) => (
               <motion.div
                 key={index}
-                className="group relative rounded-lg bg-card"
+                className="group relative rounded-lg bg-card shadow-lg overflow-hidden"
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="aspect-[16/9] relative">
+                {/* Image Container */}
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
                   <Image
                     src={project.imageUrl || "/placeholder.svg"}
                     alt={project.title}
-                    className="rounded-lg object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={index < 6}
-                    fill
+                    width={300}
+                    height={300}
+                    className="rounded-lg object-cover w-full h-full"
+                    priority={index < 4}
                   />
-                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg">
-                    <div className="p-6 h-full flex flex-col justify-between text-white">
-                      <div>
-                        <h3 className="text-xl font-semibold mb-2">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm text-gray-200 mb-4 line-clamp-3">
-                          {project.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.label.slice(0, 3).map((tech, i) => (
-                            <Badge
-                              key={i}
-                              variant="secondary"
-                              className="text-xs"
-                            >
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="flex gap-3">
-                        {project.githubRepo && (
-                          <Button
-                            variant="secondary"
-                            size="sm"
-                            onClick={() =>
-                              window.open(project.githubRepo, "_blank")
-                            }
-                          >
-                            <Github className="w-4 h-4 mr-2" />
-                            GitHub
-                          </Button>
-                        )}
-                        {project.livePreviewUrl && (
-                          <Button
-                            variant="secondary"
-                            size="sm"
-                            onClick={() =>
-                              window.open(project.livePreviewUrl, "_blank")
-                            }
-                          >
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Preview
-                          </Button>
-                        )}
-                      </div>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-between p-6 text-white">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-gray-200 mb-4 line-clamp-3">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Labels */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.label.slice(0, 5).map((tech, i) => (
+                        <Badge key={i} variant="secondary" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
                     </div>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-3">
+                    {project.githubRepo && (
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        onClick={() =>
+                          window.open(project.githubRepo, "_blank")
+                        }
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        GitHub
+                      </Button>
+                    )}
+                    {project.livePreviewUrl && (
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        onClick={() =>
+                          window.open(project.livePreviewUrl, "_blank")
+                        }
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Preview
+                      </Button>
+                    )}
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {!showAll && projects.length > 6 && (
+          {/* Show More / Show Less Button */}
+          {projects.length > 4 && (
             <div className="text-center mt-12">
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => setShowAll(true)}
+                onClick={() => setShowAll(!showAll)}
               >
-                See more
+                {showAll ? "Show Less" : "Show More"}
               </Button>
             </div>
           )}
