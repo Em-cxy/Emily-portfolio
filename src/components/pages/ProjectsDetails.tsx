@@ -289,8 +289,7 @@ export default function ProjectsSection() {
                     <Image
                       src={project.imageUrl || "/placeholder.svg"}
                       alt={project.title}
-                      width={300}
-                      height={300}
+                      fill
                       className="rounded-lg object-cover w-full h-full"
                       priority={index < 4}
                     />
