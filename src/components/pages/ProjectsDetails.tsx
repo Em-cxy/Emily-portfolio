@@ -259,10 +259,7 @@ export default function ProjectsSection() {
             <p className="text-muted-foreground">
               Here are a few past design projects I&apos;ve worked on. Want to
               see more?{" "}
-              <a
-                href="mailto:ianbian2@gmail.com"
-                className="text-primary hover:underline"
-              >
+              <a href="mailto:ianbian2@gmail.com" className="underline">
                 Email me
               </a>
               .
