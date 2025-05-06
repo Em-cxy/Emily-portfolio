@@ -10,70 +10,95 @@ import { useEffect, useState } from "react"
 
 // Mock data for all sections
 const profileData = {
-  name: "Emily Johnson",
+  name: "Emily",
   title: "Dance Instructor & Administrative Professional",
   description: "A showcase of my achievements, education, and professional experience!",
-  image: "/placeholder.svg?height=320&width=320",
+  image: "/Canva.jpg",
   social: {
-    email: "emily.johnson@example.com",
-    phone: "+1 (555) 123-4567",
-    instagram: "@emily_dance",
-    whatsapp: "+15551234567",
+    email: "emilychuxinyi88@gmail.com",
+    phone: "+60 16-364 3228",
+    instagram: "@heyiamemilyyy_",
+    whatsapp: "+60 16-364 3228",
   },
 }
 
 const educationData = [
   {
-    institution: "University of Arts London",
-    degree: "Bachelor of Fine Arts in Dance",
-    period: "2016-2020",
-    gpa: "3.9/4.0",
-    details: "Specialized in ballet and contemporary dance. Received Dean's List recognition for academic excellence.",
+    institution: "SMK SERI SENTOSA",
+    degree: "Sijil Pelajaran Malaysia (SPM)",
+    period: "2022",
+    Result: "4A,2B+,4B",
+    details: "Subjects: Bahasa Melayu, Bahasa English, Pendidikan Moral, Sejarah, Matematik, Sains, Matematik Tambahan, Prinsip Perakaunan, Ekonomi, Bahasa Cina.",
   },
   {
-    institution: "Royal Academy of Dance",
-    degree: "Professional Dance Teaching Certification",
-    period: "2020-2021",
-    gpa: "Distinction",
-    details: "Completed advanced training in dance pedagogy and choreography techniques.",
+    institution: "SMK SERI SENTOSA",
+    degree: "Sijil Tinggi Persekolahan Malaysia (STPM)",
+    period: "2023-2025",
+    Result: "",
+    details: "Subjects: Pengajian Am, Ekonomi, Perakaunan, Mathematics (Management). ",
   },
   {
-    institution: "Westlake High School",
-    degree: "High School Diploma",
-    period: "2012-2016",
-    gpa: "4.0/4.0",
-    details: "Graduated as valedictorian with honors in performing arts.",
+    institution: "Royal Academy of Dance (RAD)",
+    degree: "",
+    period: "2011-2025",
+    Result: "Merit",
+    details: "RAD Advanced 2 Ballet Certificate - Graduted.",
   },
 ]
 
 const certificatesData = [
   {
-    title: "Advanced Ballet Instructor Certification",
-    organization: "Royal Academy of Dance",
-    year: "2022",
-    description: "Certification in advanced ballet teaching methodologies for all age groups and skill levels.",
-    image: "/placeholder.svg?height=300&width=500",
-  },
-  {
-    title: "Business Administration Certificate",
-    organization: "Harvard Business School Online",
-    year: "2021",
-    description: "Comprehensive training in business management, leadership, and administrative operations.",
-    image: "/placeholder.svg?height=300&width=500",
-  },
-  {
-    title: "Contemporary Dance Choreography",
-    organization: "National Dance Association",
-    year: "2020",
-    description: "Specialized certification in modern choreography techniques and performance direction.",
-    image: "/placeholder.svg?height=300&width=500",
-  },
-  {
-    title: "First Aid & CPR Certification",
-    organization: "American Red Cross",
+    title: "Webinar Rendah Karbon IMELC 2023",
+    organization: "Jabatan Pendidikan Negeri Johor",
     year: "2023",
-    description: "Professional certification in emergency response and safety procedures for dance studios.",
-    image: "/placeholder.svg?height=300&width=500",
+    description: "Iskandar Malaysia Ecolife Challenge",
+    image: "/CARBON SP'23.png",
+  },
+  {
+    title: "Karnival Senotsa Sihat & Selamat Vol.2",
+    organization: "PTE SMK SERI SENOTSA",
+    year: "2023",
+    description: "Peringkat Negeri Wilayah Persekutuan Kuala Lumpur",
+    image: "/Karnival'23.png",
+  },
+  {
+    title: "Victoria Instituition Pre-University Games 2023 (Bola Tampar)",
+    organization: "Victoria Institution Kuala Lumpur",
+    year: "2023",
+    description: "Peringkat Kebangsaan",
+    image: "/VI SP '23.png",
+  },
+  {
+    title: "ADVA/JA Dengue Slayers Workshop Year 2024",
+    organization: "ADVA|JA Malaysia",
+    year: "2024",
+    description: "Dengue Slayers Challenge",
+    image: "/DENGUE SP may'24.png",
+  },
+  {
+    title: "Pertandingan Fotografi Bertemakan Warisan",
+    organization: "KTE Tuanku Muhriz, Seremban",
+    year: "2024",
+    description: "Peringkat Kebangsaan",
+    image: "/PHOTOGRAPHY SP ogos'24.jpg",
+  },{
+    title: "Jelajah Seminar Kenegaraan MADANI Siri 6/2024",
+    organization: "YAYASAN DAKWAH ISLAMIAH MALAYSIA NEGERI SELANGOR DAN JABATAN PENDIDIKAN WILAYAH PERSEKUTUAN KUALA LUMPUR",
+    year: "2024",
+    description: "Malaysia MADANI",
+    image: "/YADIM SP ogos'24.jpg",
+  },{
+    title: "The Queen's Commonwealth Essay Competition 2024",
+    organization: "Royal Commonwealth Society",
+    year: "2024",
+    description: "International",
+    image: "/commonwealth sp sep'24.jpg",
+  },{
+    title: "Aktiviti Game Station",
+    organization: "SMK SERI SENOTSA Badan Beruniform",
+    year: "2024",
+    description: "Kokurikulum",
+    image: "/GAME SP sep'24.png",
   },
 ]
 
@@ -82,62 +107,79 @@ const achievementsData = [
     title: "National Ballet Competition Gold Medal",
     year: "2021",
     description: "Awarded first place in the professional category at the National Dance Championship.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/PENOLONG ACHIEVEMENT'23.png",
   },
   {
     title: "Choreographer of the Year",
     year: "2020",
     description: "Recognized by the Regional Dance Association for outstanding choreography in 'Seasons of Change'.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/DESA MAHKOTA ACHIEVEMENT'24.png",
   },
   {
     title: "Dance Studio Excellence Award",
     year: "2022",
     description: "Studio received top honors under my leadership for exceptional student development and performance.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/SWEDA may'24.png",
   },
   {
     title: "Administrative Leadership Award",
     year: "2019",
     description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/PENOLONG ACHIEVEMENT'24.png",
   },
   {
-    title: "Community Arts Contribution Award",
-    year: "2023",
-    description: "Honored for organizing free dance workshops for underprivileged children in the community.",
-    image: "/placeholder.svg?height=300&width=400",
-  },
+    title: "Administrative Leadership Award",
+    year: "2019",
+    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    image: "/PENOLONG RESULT ACHIEVEMENT.png",
+  },{
+    title: "Administrative Leadership Award",
+    year: "2019",
+    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    image: "/BB ACHIEVEMENT'24.png",
+  },{
+    title: "Administrative Leadership Award",
+    year: "2019",
+    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    image: "/ACHIEVMENT :24.png",
+  },{
+    title: "Administrative Leadership Award",
+    year: "2019",
+    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    image: "/BENDAHARI ACHIEVEMNT'24.png",
+  }
+
+
 ]
 
 const extracurricularData = [
   {
-    title: "Dance for Charity Annual Fundraiser",
-    organization: "Community Arts Foundation",
-    year: "2021-Present",
-    description: "Organize and perform in annual charity events that have raised over $50,000 for arts education.",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Merdeka sixty6 Run",
+    organization: "JomRun",
+    year: "2023",
+    description: "5km Fun Run",
+    image: "/Merdeka Run'23.jpg",
   },
   {
-    title: "Youth Dance Mentor Program",
-    organization: "City Youth Center",
-    year: "2020-Present",
-    description: "Volunteer weekly to mentor underprivileged youth in dance and performance skills.",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Asian Elite Dance Competition",
+    organization: "Hong Kong Youth Dance Association",
+    year: "2024",
+    description: "Awarded Gold in Senior Contempory Dance Ensemble",
+    image: "/AEDC MAC'24.png",
   },
   {
-    title: "Dance Therapy for Seniors",
-    organization: "Golden Years Retirement Home",
-    year: "2022-Present",
-    description: "Lead weekly movement sessions designed to improve mobility and mental wellbeing for seniors.",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Malaysia Challenge Cup Dance Competition 2024",
+    organization: "MCCDC",
+    year: "2024",
+    description: "Awarded Silver in Contemporary Ensemble",
+    image: "/MCCDC may'24.png",
   },
   {
-    title: "Arts Administration Committee",
-    organization: "Regional Arts Council",
-    year: "2021-Present",
-    description: "Serve as committee member to develop policies supporting local arts organizations.",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "5th Asia Open Dance Championship 2024",
+    organization: "AODC",
+    year: "2024",
+    description: "Awareded Gold in Senior B Modern Contemporary",
+    image: "/AODC sep'24.png",
   },
   {
     title: "Professional Dance Association",
@@ -157,40 +199,40 @@ const extracurricularData = [
 
 const experienceData = [
   {
-    title: "Dance Studio Director & Lead Instructor",
-    company: "Harmony Dance Academy",
-    period: "2021-Present",
+    title: "Ballet Teacher",
+    company: "City Ballet Academy",
+    period: "February 2024 - Present",
     duties: [
-      "Manage all aspects of studio operations including scheduling, staffing, and curriculum development",
-      "Teach advanced ballet and contemporary dance classes to students of all ages",
-      "Choreograph performances for seasonal recitals and competitive dance teams",
-      "Implement business strategies that increased enrollment by 40% in two years",
-      "Supervise a team of 8 dance instructors and 3 administrative staff",
+      "Taught ballet techniques to students of various ages and skill levels",
+      "Planned and conducted structured lessons focusing on posture and flexibility",
+      "Provided individual guidance to help students improve their performance and confidence",
+      "Prepared students for examinations and performances",
     ],
   },
   {
     title: "Administrative & Management Executive",
-    company: "ArtsWave Organization",
-    period: "2018-2021",
+    company: "City Ballet Academy",
+    period: ["March 2021 - May 2022",
+      ", April 2025 - present"
+    ],
     duties: [
-      "Oversaw daily operations and team management for a non-profit arts organization",
+      "Produces an informative brochure for new parents to introduce programs and support enrollment",
       "Implemented new administrative processes that improved efficiency by 25%",
-      "Managed budget planning and financial reporting for multiple departments",
-      "Coordinated with community partners to develop outreach programs",
-      "Led successful fundraising initiatives that increased annual donations by 30%",
-      "Supervised office operations and administrative staff training",
+      "Processing fees and issued receipts",
+      "Tracked students’ attendance and supported daily admin tasks",
+      "Assisted with fitting student attire",
+      "Managed and recorded stock distribution and inventory",
     ],
   },
   {
-    title: "Dance Instructor & Program Coordinator",
-    company: "Elite Dance Center",
-    period: "2016-2018",
+    title: "Sales Representative",
+    company: "UNIIQ KOMBUCHA",
+    period: "April 2023 - May 2023",
     duties: [
-      "Taught ballet, jazz, and contemporary dance classes to students ages 5-18",
-      "Developed age-appropriate curriculum for different skill levels",
-      "Coordinated performance schedules and competition participation",
-      "Assisted with studio administration including registration and parent communications",
-      "Choreographed award-winning routines for competitive dance teams",
+      "Promoted products through direct customer engagement and sampling",
+      "Successfully encouraged product trials and increased sales through persuasive communication",
+      "Consistently hit daily sales targets through strong customer interaction and product knowledge",
+      "Operated and managed the booth independently, including setup, sampling, and stock handling"
     ],
   },
 ]
@@ -487,7 +529,7 @@ export default function Portfolio() {
                       <p className="text-sm md:text-base text-white/70">
                         {education.degree}, {education.period}
                       </p>
-                      <p className="mt-2 text-sm md:text-base">GPA: {education.gpa}</p>
+                      <p className="mt-2 text-sm md:text-base">Result: {education.Result}</p>
                       <p className="mt-1 text-sm md:text-base">{education.details}</p>
                     </div>
                   ))}
@@ -830,7 +872,7 @@ export default function Portfolio() {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-12 text-center animate-slideUp opacity-100">
               <span className="border-b-4 border-purple-400 pb-2">Feel Free to Contact Me :)</span>
             </h2>
-            <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
+            <div className="Grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 Grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3-cols-1 md:grid-cols-2 lg:grid-cols-3 Grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3-cols-1 gap-8 max-w-3xl mx-auto">
               <Card className="bg-white/5 border-white/10 backdrop-blur-sm transform transition-all duration-500 hover:scale-[1.01] animate-fadeIn opacity-100">
                 <CardContent className="p-4 md:p-6 lg:p-8">
                   <h3 className="text-xl md:text-2xl font-bold mb-4">Send Me a Message</h3>
