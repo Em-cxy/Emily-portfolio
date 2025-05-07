@@ -13,7 +13,7 @@ const profileData = {
   name: "Emily",
   title: "Dance Instructor & Administrative Professional",
   description: "A showcase of my achievements, education, and professional experience!",
-  image: "/Canva.jpg",
+  image: "/Profile.jpg",
   social: {
     email: "emilychuxinyi88@gmail.com",
     phone: "+60 16-364 3228",
@@ -187,6 +187,43 @@ const extracurricularData = [
     year: "2025",
     description: "Persatuan Olahraga WP Kuala Lumpur",
     image: "/TBM.JPG",
+  }
+]
+const performingartsData = [
+  {
+    title: "Frozen & Friends",
+    organization: "City Ballet Academy",
+    year: "2019",
+    description: "Roles: Corps De Ballet",
+    image: "/Frozen'19.jpeg",
+  },
+  {
+    title: "Christmas Mask-Querade",
+    organization: "City Ballet Academy",
+    year: "2021",
+    description: "Perfomanced Ballet Dance and Contemporary Dance",
+    image: "/Cristmas Mask-Querade'21.jpg",
+  },
+  {
+    title: "Black And White",
+    organization: "City Ballet Academy",
+    year: "2022",
+    description: "Performed Contempaorary Dance",
+    image: "/B&W '22.jpeg",
+  },
+  {
+    title: "Nutcracker And Clara's Dream",
+    organization: "City Ballet Academy | Pointe & Music Dance Academy",
+    year: "2022",
+    description: "Roles: Parents, Corp De Ballet (Waltz Of Flowers and Land of Snow)",
+    image: "/Nutcracker'22.jpeg",
+  },
+  {
+    title: "Zootopia",
+    organization: "City Ballet Academy",
+    year: "2023",
+    description: "Roles: Corp De Ballet",
+    image: "/Zootopia'23.jpeg",
   }
 ]
 
@@ -734,6 +771,103 @@ export default function Portfolio() {
               <div className="carousel-container overflow-hidden">
                 <div className="carousel-track flex transition-transform duration-500" id="extracurricular-carousel">
                   {extracurricularData.map((activity, index) => (
+                    <div
+                      key={index}
+                      className="carousel-item w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 animate-fadeIn opacity-100"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <Card className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden transform transition-all duration-500 hover:scale-[1.05] h-full">
+                        <div className="relative h-40 md:h-60 w-full overflow-hidden group">
+                          <Image
+                            src={activity.image || "/placeholder.svg"}
+                            alt={activity.title}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <p className="p-4 text-xs md:text-sm">Click to view details</p>
+                          </div>
+                        </div>
+                        <CardContent className="p-3 md:p-4">
+                          <h3 className="text-base md:text-lg font-bold">{activity.title}</h3>
+                          <p className="text-xs md:text-sm text-white/70">
+                            {activity.organization} • {activity.year}
+                          </p>
+                          <p className="mt-2 text-xs md:text-sm">{activity.description}</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Carousel Controls */}
+              <div className="flex justify-center mt-6 space-x-2">
+                {extracurricularData.map((_, index) => (
+                  <button
+                    key={index}
+                    className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/30 hover:bg-white/70 transition-colors carousel-dot"
+                    data-index={index}
+                    data-carousel="extracurricular-carousel"
+                    aria-label={`Go to slide ${index + 1}`}
+                  ></button>
+                ))}
+              </div>
+
+              <button
+                className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-1 md:p-2 backdrop-blur-sm carousel-prev"
+                data-carousel="extracurricular-carousel"
+                aria-label="Previous slide"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="md:w-6 md:h-6"
+                >
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              <button
+                className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-1 md:p-2 backdrop-blur-sm carousel-next"
+                data-carousel="extracurricular-carousel"
+                aria-label="Next slide"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="md:w-6 md:h-6"
+                >
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+        {/* Performing Arts Section */}
+        <section id="performing arts" className="py-24 min-h-screen flex items-center">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-12 text-center animate-slideUp opacity-100">
+              <span className="border-b-4 border-purple-400 pb-2">Performing Arts </span>
+            </h2>
+            <div className="relative">
+              <div className="carousel-container overflow-hidden">
+                <div className="carousel-track flex transition-transform duration-500" id="extracurricular-carousel">
+                  {performingartsData.map((activity, index) => (
                     <div
                       key={index}
                       className="carousel-item w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 animate-fadeIn opacity-100"
