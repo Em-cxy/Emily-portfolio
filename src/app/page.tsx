@@ -999,7 +999,7 @@ export default function Portfolio() {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-12 text-center animate-slideUp opacity-100">
               <span className="border-b-4 border-purple-400 pb-2">Feel Free to Contact Me :)</span>
             </h2>
-            <div className="Grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 Grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3-cols-1 md:grid-cols-2 lg:grid-cols-3 Grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3-cols-1 gap-8 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
               <Card className="bg-white/5 border-white/10 backdrop-blur-sm transform transition-all duration-500 hover:scale-[1.01] animate-fadeIn opacity-100">
                 <CardContent className="p-4 md:p-6 lg:p-8">
                   <h3 className="text-xl md:text-2xl font-bold mb-4">Send Me a Message</h3>
