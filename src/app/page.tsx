@@ -12,7 +12,7 @@ import { useEffect, useState } from "react"
 const profileData = {
   name: "Emily",
   title: "Dance Instructor & Administrative Professional",
-  description: "A showcase of my achievements, education, and professional experience!",
+  description: "Hey, this is Chu Xin Yi. A showcase of my achievements, education, and professional experience!",
   image: "/Profile.jpg",
   social: {
     email: "emilychuxinyi88@gmail.com",
