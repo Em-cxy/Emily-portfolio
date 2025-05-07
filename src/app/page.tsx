@@ -104,48 +104,48 @@ const certificatesData = [
 
 const achievementsData = [
   {
-    title: "National Ballet Competition Gold Medal",
-    year: "2021",
-    description: "Awarded first place in the professional category at the National Dance Championship.",
+    title: "Penolong Tingkatan 6B1",
+    year: "2023",
+    description: "SMK SERI SENTOSA Lower 6",
     image: "/PENOLONG ACHIEVEMENT'23.png",
   },
   {
-    title: "Choreographer of the Year",
-    year: "2020",
-    description: "Recognized by the Regional Dance Association for outstanding choreography in 'Seasons of Change'.",
+    title: "Karnival Sukan Dan Kejohanan Olahraga Tingkatan Enam",
+    year: "2024",
+    description: "Peringkat Kebangsaan (Bola Tampar Tempat Kedua)",
     image: "/DESA MAHKOTA ACHIEVEMENT'24.png",
   },
   {
-    title: "Dance Studio Excellence Award",
-    year: "2022",
-    description: "Studio received top honors under my leadership for exceptional student development and performance.",
+    title: "Certificate of Outstanding Achievement in SPM",
+    year: "2024",
+    description: "Awarded by The Selangor & Wilayah Persekutuan (Kuala Lumpur) Electrical Home Appliances Dealers' Assosication (SWEDA)",
     image: "/SWEDA may'24.png",
   },
   {
-    title: "Administrative Leadership Award",
-    year: "2019",
-    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    title: "Penolong Ketua Tingkatan 6A1",
+    year: "2014",
+    description: "SMK SERI SENTOSA Upper 6",
     image: "/PENOLONG ACHIEVEMENT'24.png",
   },
   {
-    title: "Administrative Leadership Award",
-    year: "2019",
-    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    title: "Penolong Ketua Tingkatan 6A SAS 1",
+    year: "2024/2025",
+    description: "SMK SERI SENTOSA",
     image: "/PENOLONG RESULT ACHIEVEMENT.png",
   },{
-    title: "Administrative Leadership Award",
-    year: "2019",
-    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    title: "Pengerusi Sukan Permainan Bola Keranjang Tingkatan 6",
+    year: "2024",
+    description: "SMK SERI SENTOSA",
     image: "/BB ACHIEVEMENT'24.png",
   },{
-    title: "Administrative Leadership Award",
-    year: "2019",
-    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    title: "Anugerah Emas",
+    year: "2024",
+    description: "Pencapaian Cemerlang Peringkat Kebangsaan",
     image: "/ACHIEVMENT :24.png",
   },{
-    title: "Administrative Leadership Award",
-    year: "2019",
-    description: "Recognized for implementing innovative management systems that increased efficiency by 35%.",
+    title: "Bendahari Jawatankuasa Persatuan Tingkatan 6",
+    year: "2024",
+    description: "SMK SERI SENTOSA",
     image: "/BENDAHARI ACHIEVEMNT'24.png",
   }
 
@@ -182,19 +182,12 @@ const extracurricularData = [
     image: "/AODC sep'24.png",
   },
   {
-    title: "Professional Dance Association",
-    organization: "National Dance Guild",
-    year: "2019-Present",
-    description: "Active member participating in professional development and industry advancement initiatives.",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "Dance Education Conference Speaker",
-    organization: "International Dance Education Summit",
-    year: "2022",
-    description: "Presented workshop on integrating business management with creative arts education.",
-    image: "/placeholder.svg?height=200&width=300",
-  },
+    title: "KL City Day Half Marathon 2025",
+    organization: "Tan Boon Ming Sdn Bhd (TBM)",
+    year: "2025",
+    description: "Persatuan Olahraga WP Kuala Lumpur",
+    image: "/TBM.JPG",
+  }
 ]
 
 const experienceData = [
