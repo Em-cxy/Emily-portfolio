@@ -581,8 +581,8 @@ export default function Portfolio() {
                   {certificatesData.map((certificate, index) => (
                     <div
                       key={index}
-                      className="carousel-item w-full md:w-1/2 lg:w-1/2 flex-shrink-0 px-4 animate-fadeIn opacity-100"
-                      style={{ animationDelay: `${index * 150}ms` }}
+                      className="carousel-item w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 animate-fadeIn opacity-100"
+                      style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <Card className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden transform transition-all duration-500 hover:scale-[1.03] h-full">
                         <div className="relative h-40 md:h-48 w-full overflow-hidden">
@@ -676,8 +676,8 @@ export default function Portfolio() {
                   {achievementsData.map((achievement, index) => (
                     <div
                       key={index}
-                      className="carousel-item w-full flex-shrink-0 px-4 animate-fadeIn opacity-100"
-                      style={{ animationDelay: `${index * 150}ms` }}
+                      className="carousel-item w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 animate-fadeIn opacity-100"
+                      style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <Card className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden transform transition-all duration-500 hover:scale-[1.01] h-full">
                         <CardContent className="p-4 md:p-6 lg:p-8">
