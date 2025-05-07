@@ -28,7 +28,8 @@ const educationData = [
     degree: "Sijil Pelajaran Malaysia (SPM)",
     period: "2022",
     Result: "4A,2B+,4B",
-    details: "Subjects: Bahasa Melayu, Bahasa English, Pendidikan Moral, Sejarah, Matematik, Sains, Matematik Tambahan, Prinsip Perakaunan, Ekonomi, Bahasa Cina.",
+    details:
+      "Subjects: Bahasa Melayu, Bahasa English, Pendidikan Moral, Sejarah, Matematik, Sains, Matematik Tambahan, Prinsip Perakaunan, Ekonomi, Bahasa Cina.",
   },
   {
     institution: "SMK SERI SENTOSA",
@@ -81,19 +82,23 @@ const certificatesData = [
     year: "2024",
     description: "Peringkat Kebangsaan",
     image: "/PHOTOGRAPHY SP ogos'24.jpg",
-  },{
+  },
+  {
     title: "Jelajah Seminar Kenegaraan MADANI Siri 6/2024",
-    organization: "YAYASAN DAKWAH ISLAMIAH MALAYSIA NEGERI SELANGOR DAN JABATAN PENDIDIKAN WILAYAH PERSEKUTUAN KUALA LUMPUR",
+    organization:
+      "YAYASAN DAKWAH ISLAMIAH MALAYSIA NEGERI SELANGOR DAN JABATAN PENDIDIKAN WILAYAH PERSEKUTUAN KUALA LUMPUR",
     year: "2024",
     description: "Malaysia MADANI",
     image: "/YADIM SP ogos'24.jpg",
-  },{
+  },
+  {
     title: "The Queen's Commonwealth Essay Competition 2024",
     organization: "Royal Commonwealth Society",
     year: "2024",
     description: "International",
     image: "/commonwealth sp sep'24.jpg",
-  },{
+  },
+  {
     title: "Aktiviti Game Station",
     organization: "SMK SERI SENOTSA Badan Beruniform",
     year: "2024",
@@ -118,7 +123,8 @@ const achievementsData = [
   {
     title: "Certificate of Outstanding Achievement in SPM",
     year: "2024",
-    description: "Awarded by The Selangor & Wilayah Persekutuan (Kuala Lumpur) Electrical Home Appliances Dealers' Assosication (SWEDA)",
+    description:
+      "Awarded by The Selangor & Wilayah Persekutuan (Kuala Lumpur) Electrical Home Appliances Dealers' Assosication (SWEDA)",
     image: "/SWEDA may'24.png",
   },
   {
@@ -132,24 +138,25 @@ const achievementsData = [
     year: "2024/2025",
     description: "SMK SERI SENTOSA",
     image: "/PENOLONG RESULT ACHIEVEMENT.png",
-  },{
+  },
+  {
     title: "Pengerusi Sukan Permainan Bola Keranjang Tingkatan 6",
     year: "2024",
     description: "SMK SERI SENTOSA",
     image: "/BB ACHIEVEMENT'24.png",
-  },{
+  },
+  {
     title: "Anugerah Emas",
     year: "2024",
     description: "Pencapaian Cemerlang Peringkat Kebangsaan",
     image: "/ACHIEVMENT :24.png",
-  },{
+  },
+  {
     title: "Bendahari Jawatankuasa Persatuan Tingkatan 6",
     year: "2024",
     description: "SMK SERI SENTOSA",
     image: "/BENDAHARI ACHIEVEMNT'24.png",
-  }
-
-
+  },
 ]
 
 const extracurricularData = [
@@ -187,7 +194,7 @@ const extracurricularData = [
     year: "2025",
     description: "Persatuan Olahraga WP Kuala Lumpur",
     image: "/TBM.JPG",
-  }
+  },
 ]
 const performingartsData = [
   {
@@ -224,7 +231,7 @@ const performingartsData = [
     year: "2023",
     description: "Roles: Corp De Ballet",
     image: "/Zootopia'23.jpeg",
-  }
+  },
 ]
 
 const experienceData = [
@@ -242,9 +249,7 @@ const experienceData = [
   {
     title: "Administrative & Management Executive",
     company: "City Ballet Academy",
-    period: ["March 2021 - May 2022",
-      ", April 2025 - present"
-    ],
+    period: ["March 2021 - May 2022", ", April 2025 - present"],
     duties: [
       "Produces an informative brochure for new parents to introduce programs and support enrollment",
       "Implemented new administrative processes that improved efficiency by 25%",
@@ -262,13 +267,48 @@ const experienceData = [
       "Promoted products through direct customer engagement and sampling",
       "Successfully encouraged product trials and increased sales through persuasive communication",
       "Consistently hit daily sales targets through strong customer interaction and product knowledge",
-      "Operated and managed the booth independently, including setup, sampling, and stock handling"
+      "Operated and managed the booth independently, including setup, sampling, and stock handling",
     ],
   },
 ]
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    // Smooth scrolling for navigation links
+    const handleLinkClick = (e: any) => {
+      const href = e.currentTarget.getAttribute("href")
+      if (href && href.startsWith("#")) {
+        e.preventDefault()
+        const targetId = href.substring(1)
+        const targetElement = document.getElementById(targetId)
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80, // Offset for the fixed header
+            behavior: "smooth",
+          })
+
+          // Close mobile menu if open
+          setMobileMenuOpen(false)
+        }
+      }
+    }
+
+    // Add event listeners to all navigation links
+    const navLinks = document.querySelectorAll('a[href^="#"]')
+    navLinks.forEach((link) => {
+      link.addEventListener("click", handleLinkClick)
+    })
+
+    // Cleanup
+    return () => {
+      navLinks.forEach((link) => {
+        link.removeEventListener("click", handleLinkClick)
+      })
+    }
+  }, [])
 
   useEffect(() => {
     // Make all elements with opacity-0 visible
@@ -289,7 +329,7 @@ export default function Portfolio() {
     setTimeout(makeVisible, 500)
   }, [])
 
-  // Close mobile menu when clicking on a navigation link
+  // This is now handled in the useEffect for smooth scrolling
   const handleNavClick = () => {
     setMobileMenuOpen(false)
   }
@@ -411,6 +451,11 @@ export default function Portfolio() {
                     </a>
                   </li>
                   <li>
+                    <a href="#performingarts" className="hover:text-purple-300 transition-colors">
+                      Performing Arts
+                    </a>
+                  </li>
+                  <li>
                     <a href="#experience" className="hover:text-purple-300 transition-colors">
                       Experience
                     </a>
@@ -462,6 +507,15 @@ export default function Portfolio() {
                       onClick={handleNavClick}
                     >
                       Extracurricular
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#performingarts"
+                      className="block hover:text-purple-300 transition-colors"
+                      onClick={handleNavClick}
+                    >
+                      Performing Arts
                     </a>
                   </li>
                   <li>
@@ -557,7 +611,7 @@ export default function Portfolio() {
                     >
                       <h3 className="text-xl md:text-2xl font-bold">{education.institution}</h3>
                       <p className="text-sm md:text-base text-white/70">
-                        {education.degree}, {education.period}
+                        {education.degree} • {education.period}
                       </p>
                       <p className="mt-2 text-sm md:text-base">Result: {education.Result}</p>
                       <p className="mt-1 text-sm md:text-base">{education.details}</p>
@@ -585,23 +639,23 @@ export default function Portfolio() {
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <Card className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden transform transition-all duration-500 hover:scale-[1.03] h-full">
-                        <div className="relative h-40 md:h-48 w-full overflow-hidden">
-                          <Image
-                            src={certificate.image || "/placeholder.svg"}
-                            alt={certificate.title}
-                            fill
-                            className="object-cover transition-transform duration-700 hover:scale-110"
-                          />
+                          <div className="relative h-40 md:h-48 w-full overflow-hidden">
+                              <Image
+                                src={certificate.image || "/placeholder.svg"}
+                                alt={certificate.title}
+                                fill
+                                className="object-cover transition-transform duration-700 hover:scale-110"
+                              />
+                            </div>
+                            <CardContent className="p-40 md:p-6">
+                              <h3 className="text-xl md:text-2xl font-bold">{certificate.title}</h3>
+                              <p className="text-sm md:text-base text-white/70">
+                                {certificate.organization} • {certificate.year}
+                              </p>
+                              <p className="mt-2 text-sm md:text-base">{certificate.description}</p>
+                            </CardContent>
+                          </Card>
                         </div>
-                        <CardContent className="p-4 md:p-6">
-                          <h3 className="text-lg md:text-xl font-bold">{certificate.title}</h3>
-                          <p className="text-xs md:text-sm text-white/70">
-                            {certificate.organization} • {certificate.year}
-                          </p>
-                          <p className="mt-2 text-xs md:text-sm">{certificate.description}</p>
-                        </CardContent>
-                      </Card>
-                    </div>
                   ))}
                 </div>
               </div>
@@ -679,10 +733,8 @@ export default function Portfolio() {
                       className="carousel-item w-full md:w-1/3 lg:w-1/3 flex-shrink-0 px-4 animate-fadeIn opacity-100"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <Card className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden transform transition-all duration-500 hover:scale-[1.01] h-full">
-                        <CardContent className="p-4 md:p-6 lg:p-8">
-                          <div className="flex flex-col gap-4 md:gap-6">
-                            <div className="relative h-48 md:h-64 w-full rounded-lg overflow-hidden">
+                      <Card className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden transform transition-all duration-500 hover:scale-[1.03] h-full">
+                          <div className="relative h-40 md:h-48 w-full overflow-hidden">
                               <Image
                                 src={achievement.image || "/placeholder.svg"}
                                 alt={achievement.title}
@@ -690,15 +742,15 @@ export default function Portfolio() {
                                 className="object-cover transition-transform duration-700 hover:scale-110"
                               />
                             </div>
-                            <div className="w-full">
+                            <CardContent className="p-40 md:p-6">
                               <h3 className="text-xl md:text-2xl font-bold">{achievement.title}</h3>
-                              <p className="text-sm md:text-base text-white/70">Year: {achievement.year}</p>
+                              <p className="text-sm md:text-base text-white/70">
+                                 {achievement.year}
+                              </p>
                               <p className="mt-2 text-sm md:text-base">{achievement.description}</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
+                            </CardContent>
+                          </Card>
+                        </div>
                   ))}
                 </div>
               </div>
@@ -859,7 +911,7 @@ export default function Portfolio() {
           </div>
         </section>
         {/* Performing Arts Section */}
-        <section id="performing arts" className="py-24 min-h-screen flex items-center">
+        <section id="performingarts" className="py-24 min-h-screen flex items-center">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-12 text-center animate-slideUp opacity-100">
               <span className="border-b-4 border-purple-400 pb-2">Performing Arts </span>
