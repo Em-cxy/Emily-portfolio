@@ -51,7 +51,7 @@ const educationData = [
     degree: "",
     period: "2011-2025",
     Result: "Merit",
-    details: "RAD Advanced 2 Ballet Certificate - Graduted.",
+    details: "RAD Advanced 2 Ballet Certificate - Graduated.",
   },
 ]
 
