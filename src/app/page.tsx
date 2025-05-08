@@ -40,6 +40,11 @@ const educationData = [
     period: "2023-2025",
     Result: "",
     details: "Subjects: Pengajian Am, Ekonomi, Perakaunan, Mathematics (Management). ",
+  },{
+    institution: "SMK SERI SENTOSA",
+    degree: "Malaysian Universuty English Test (MUET)",
+    period: "2023-2025",
+    Result: "Band 4.0",
   },
   {
     institution: "Royal Academy of Dance (RAD)",
