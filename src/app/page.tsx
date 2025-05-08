@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/"
 import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/"
 import { useEffect, useState, useRef } from "react"
 import { PiWhatsappLogo } from "react-icons/pi"
+import ContactForm from "@/components/contactform";
 
 // Mock data for all sections
 const profileData = {
@@ -1323,58 +1324,7 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-24 min-h-screen flex items-center">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-12 text-center font-serif">
-              <span className="border-b-4 border-[#d4a7ff] pb-2">Feel Free to Contact Me :)</span>
-            </h2>
-            <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
-              <Card className="bg-[#1e2130]/60 border-[#f5f0e0]/10 backdrop-blur-sm transform transition-all duration-500 hover:scale-[1.01]">
-                <CardContent className="p-4 md:p-6 lg:p-8">
-                  <h3 className="text-xl md:text-2xl font-bold mb-4 font-serif">Send Me a Message</h3>
-                  <form className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block mb-2 text-xs md:text-sm font-medium">
-                        Your Name
-                      </label>
-                      <Input
-                        id="name"
-                        placeholder="John Doe"
-                        className="bg-[#2a2d3d] border-[#f5f0e0]/20 focus:border-[#d4a7ff] text-sm md:text-base"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block mb-2 text-xs md:text-sm font-medium">
-                        Your Email
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        className="bg-[#2a2d3d] border-[#f5f0e0]/20 focus:border-[#d4a7ff] text-sm md:text-base"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block mb-2 text-xs md:text-sm font-medium">
-                        Message
-                      </label>
-                      <Textarea
-                        id="message"
-                        placeholder="Your message here..."
-                        className="bg-[#2a2d3d] border-[#f5f0e0]/20 focus:border-[#d4a7ff] text-sm md:text-base"
-                        rows={5}
-                      />
-                    </div>
-                    <Button className="w-full bg-gradient-to-r from-[#7a9bff] to-[#d4a7ff] hover:from-[#7a9bff]/90 hover:to-[#d4a7ff]/90 text-[#1e2130] font-medium transition-all duration-300 transform hover:scale-105 text-sm md:text-base">
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
+        <ContactForm />
 
         {/* Footer */}
         <footer className="py-6 md:py-8 text-center text-[#f5f0e0]/60 border-t border-[#f5f0e0]/10 backdrop-blur-sm">
