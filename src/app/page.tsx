@@ -13,7 +13,7 @@ import ContactForm from "@/components/contactform";
 
 // Mock data for all sections
 const profileData = {
-  name: "Emily",
+  name: "jedenmdkEmily",
   title: "Dance Instructor & Administrative Professional",
   description: "Hey, this is Chu Xin Yi. A showcase of my achievements, education, and professional experience!",
   image: "/Profile.jpg",
